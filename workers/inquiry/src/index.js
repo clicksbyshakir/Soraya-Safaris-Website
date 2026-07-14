@@ -401,10 +401,10 @@ function autoReplyHtml(inquiry) {
   return `
     <div style="font-family: Inter, Arial, sans-serif; color: #182018; line-height: 1.65;">
       <h1 style="font-family: Georgia, serif; color: #0B1D34;">Asante, ${escapeHtml(inquiry.fullName)}.</h1>
-      <p>We have received your inquiry for a Kenya safari with {{COMPANY_NAME}}.</p>
+      <p>We have received your inquiry for a Kenya safari with Soraya Safaris.</p>
       <p>A founder will read your note and reply within a few hours. From there, we will ask any useful follow-up questions, shape a route around your dates and pace, and prepare a custom itinerary before any payment step.</p>
       <p>Kenya, planned by people who call it home.</p>
-      <p style="color: #5E685E;">{{COMPANY_NAME}}</p>
+      <p style="color: #5E685E;">Soraya Safaris</p>
     </div>
   `;
 }
@@ -456,7 +456,7 @@ function htmlResponse(ok, message, env) {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>${escapeHtml(heading)} | {{COMPANY_NAME}}</title>
+    <title>${escapeHtml(heading)} | Soraya Safaris</title>
     <style>
       body {
         margin: 0;

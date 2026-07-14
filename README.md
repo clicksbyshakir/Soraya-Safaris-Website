@@ -1,6 +1,6 @@
-# {{COMPANY_NAME}} Website
+# Soraya Safaris Website
 
-Static marketing site scaffold for a Kenya safari company serving North American travelers. The company name is intentionally kept as `{{COMPANY_NAME}}` everywhere in generated project files so it can be replaced later.
+Static marketing site for Soraya Safaris, a Kenya safari company serving North American travelers. The canonical production origin is `https://sorayasafaris.com`.
 
 ## Stack
 
@@ -39,7 +39,7 @@ No CMS, database, SSR adapter, client-side framework, or checkout flow is includ
 └── workers/
 ```
 
-Legacy static HTML files may remain at the repository root during migration. The Astro build uses `src/pages/` and outputs to `dist/`.
+The Astro build uses `src/pages/` and outputs to `dist/`. Source brand logos live in `brand/` and are not served by the build; web-ready images belong in `public/assets/`.
 
 ## Local Development
 
@@ -55,7 +55,7 @@ Use Node `22.16.0` or newer. The checked-in `.node-version` pins Cloudflare Page
 
 ## Blog Content Contract
 
-The external automated blog pipeline must write valid Markdown files to `src/content/blog/`. The Astro collection schema is defined in `src/content/config.ts` and loaded through `src/content.config.ts`. Do not write posts to the legacy `content/blog/` folder.
+The external automated blog pipeline must write valid Markdown files to `src/content/blog/`. The Astro collection schema is defined in `src/content/config.ts` and loaded through `src/content.config.ts`.
 
 A valid post file looks like this:
 
@@ -93,7 +93,7 @@ The post URL comes from the filename, not from a frontmatter `slug`. For example
 
 Invalid frontmatter fails Astro content validation during `npm run check` and `npm run build`. In CI or Cloudflare Pages, that means the deployment stops and the post is not published until the frontmatter is fixed.
 
-Set `PUBLIC_SITE_URL` in Cloudflare Pages to the confirmed apex production origin, for example `https://example.com`. Blog canonical URLs, RSS links, sitemap entries, and social image URLs use that value. Local builds fall back to `https://example.com` so the site can still build before the domain is final.
+Set `PUBLIC_SITE_URL` in Cloudflare Pages to the apex production origin, `https://sorayasafaris.com`. Blog canonical URLs, RSS links, sitemap entries, and social image URLs use that value. Builds without the variable set fall back to the same apex origin.
 
 ## Analytics and Public Build Variables
 
@@ -101,7 +101,7 @@ Cloudflare Web Analytics is the only analytics script used. Do not add Google An
 
 Set these non-secret Cloudflare Pages environment variables:
 
-- `PUBLIC_SITE_URL`: canonical apex origin, such as `https://example.com`.
+- `PUBLIC_SITE_URL`: canonical apex origin, such as `https://sorayasafaris.com`.
 - `PUBLIC_CLOUDFLARE_WEB_ANALYTICS_TOKEN`: Cloudflare Web Analytics token from the Web Analytics dashboard. The layout injects Cloudflare's cookieless beacon only when this value is present.
 - `PUBLIC_INQUIRY_ENDPOINT`: deployed Cloudflare Worker URL or routed path for the `/contact` Book a Safari form.
 
@@ -150,7 +150,7 @@ Inquiry Worker non-secret vars, set in `workers/inquiry/wrangler.toml` under `[v
 
 - `ALLOWED_ORIGIN`: production origin allowed to post the form.
 - `INQUIRY_TO_EMAIL`: inbox that receives inquiry notifications.
-- `RESEND_FROM_EMAIL`: verified Resend sender, such as `Company <hello@example.com>`.
+- `RESEND_FROM_EMAIL`: verified Resend sender, such as `Soraya Safaris <admin@sorayasafaris.com>`.
 
 These names must match `workers/inquiry/src/index.js` exactly. The Worker throws `Missing env var` and the submission fails if any required name is wrong.
 

@@ -1,6 +1,6 @@
 {
-  "name": "{{COMPANY_NAME}}",
-  "short_name": "{{COMPANY_NAME}}",
+  "name": "Soraya Safaris",
+  "short_name": "Soraya Safaris",
   "description": "Tailor-made Kenya safaris, thoughtfully planned by people who call Kenya home.",
   "start_url": "/",
   "scope": "/",

@@ -5,8 +5,8 @@ export type BreadcrumbItem = {
   path: string;
 };
 
-export const SITE_NAME = "{{COMPANY_NAME}}";
-export const SITE_URL = (import.meta.env.PUBLIC_SITE_URL || "https://example.com").replace(/\/+$/, "");
+export const SITE_NAME = "Soraya Safaris";
+export const SITE_URL = (import.meta.env.PUBLIC_SITE_URL || "https://sorayasafaris.com").replace(/\/+$/, "");
 export const SITE_DESCRIPTION =
   "Tailor-made Kenya safaris, thoughtfully planned by people who call Kenya home.";
 export const TITLE_SUFFIX = `${SITE_NAME} — Kenya Safaris`;

@@ -4,6 +4,12 @@ Date: July 14, 2026
 Build tested: local static build served from `dist/` at `http://127.0.0.1:4174`
 Canonical test origin: `https://example.com` fallback via `PUBLIC_SITE_URL`
 
+> The audit below was run before the domain and company name were confirmed, so it
+> records `example.com` and `{{COMPANY_NAME}}` placeholders. Those are now replaced
+> with `sorayasafaris.com` and `Soraya Safaris` in the repository. The structural
+> results (Lighthouse, responsive, SEO, structured data) still hold; the items under
+> Production Launch Blockers are what remain.
+
 ## Build And Static Output
 
 - [x] `npm run check` completed with 0 errors, 0 warnings, 0 hints.
@@ -75,7 +81,7 @@ All 13 page routes were tested at 360px, 768px, and 1440px viewports.
 
 - [x] `public/_redirects` redirects `www.example.com` to `example.com`.
 - [x] `public/_redirects` normalizes common trailing-slash routes to no trailing slash.
-- [ ] Replace `example.com` with the confirmed apex production domain before launch.
+- [x] Replaced `example.com` with the apex production domain `sorayasafaris.com`.
 
 ## Analytics
 
@@ -115,10 +121,21 @@ All 13 page routes were tested at 360px, 768px, and 1440px viewports.
 
 ## Production Launch Blockers
 
-- [ ] Replace all `example.com` placeholders in Cloudflare Pages env vars and `public/_redirects`.
-- [ ] Set `PUBLIC_SITE_URL` to the apex production origin.
+Done in the repository:
+
+- [x] Replaced `example.com` in `public/_redirects`, `astro.config.mjs`, `src/lib/site.ts`, and `workers/inquiry/wrangler.toml`.
+- [x] Replaced `{{COMPANY_NAME}}` with `Soraya Safaris` across `src/`, `public/`, and the Worker.
+- [x] Set `INQUIRY_TO_EMAIL` and `RESEND_FROM_EMAIL` to `admin@sorayasafaris.com`.
+
+Still required, outside the repository:
+
+- [ ] Push to a private GitHub repository and connect Cloudflare Pages.
+- [ ] Set `PUBLIC_SITE_URL` to `https://sorayasafaris.com`.
 - [ ] Set `PUBLIC_CLOUDFLARE_WEB_ANALYTICS_TOKEN`.
 - [ ] Set `PUBLIC_INQUIRY_ENDPOINT` to the deployed inquiry Worker URL or routed path.
-- [ ] Configure required Worker secrets in Cloudflare.
+- [ ] Configure Worker secrets: `RESEND_API_KEY`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`.
+- [ ] Verify `sorayasafaris.com` as a sending domain in Resend, or the from-address will be rejected.
 - [ ] Run a real form notification test after Worker secrets are configured.
 - [ ] Run Telegram, iMessage, and WhatsApp unfurl checks against production URLs.
+- [ ] Replace placeholder favicon, icons, and OG image with real brand assets from `brand/`.
+- [ ] Replace the four sample blog posts with real content.

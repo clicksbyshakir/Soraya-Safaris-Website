@@ -34,7 +34,7 @@ Use the Cloudflare Pages v3 build image where available. The repository includes
 The static Astro site does not require secrets, but it does use public build variables:
 
 ```text
-PUBLIC_SITE_URL=https://example.com
+PUBLIC_SITE_URL=https://sorayasafaris.com
 PUBLIC_CLOUDFLARE_WEB_ANALYTICS_TOKEN=<Cloudflare Web Analytics token>
 PUBLIC_INQUIRY_ENDPOINT=<deployed inquiry Worker URL or routed path>
 ```
@@ -63,10 +63,10 @@ TELEGRAM_CHAT_ID
 ## 4. Custom Domain
 
 1. In the Pages project, open Custom domains.
-2. Add the apex domain, for example `example.com`.
-3. Add `www.example.com` if the site should answer on `www`.
+2. Add the apex domain, for example `sorayasafaris.com`.
+3. Add `www.sorayasafaris.com` if the site should answer on `www`.
 4. Follow Cloudflare's verification prompts.
-5. Use the apex as canonical. The checked-in `public/_redirects` file redirects `www` to the apex after `example.com` is replaced with the confirmed production domain.
+5. Use the apex as canonical. The checked-in `public/_redirects` file redirects `www` to the apex to the apex.
 
 Typical DNS records for Cloudflare Pages:
 

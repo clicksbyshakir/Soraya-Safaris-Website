@@ -1,6 +1,6 @@
 # Cloudflare Pages redirect rules.
-# Replace example.com with the confirmed apex production domain before launch.
-https://www.example.com/* https://example.com/:splat 301!
+# The apex is canonical; www redirects to it.
+https://www.sorayasafaris.com/* https://sorayasafaris.com/:splat 301!
 
 # Trailing-slash normalization. The Astro site uses trailingSlash: "never".
 /about/ /about 301!

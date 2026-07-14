@@ -11,12 +11,12 @@ The static Astro page should set:
 
 Set secrets with `wrangler secret put NAME`. Do not commit secret values.
 
-- `ALLOWED_ORIGIN`: production site origin allowed by CORS, for example `https://www.example.com`.
+- `ALLOWED_ORIGIN`: production site origin allowed by CORS, for example `https://sorayasafaris.com`.
 - `TELEGRAM_BOT_TOKEN`: Telegram bot token.
 - `TELEGRAM_CHAT_ID`: Telegram group chat ID.
 - `RESEND_API_KEY`: Resend API key.
 - `INQUIRY_TO_EMAIL`: inbox that receives founder/internal notifications.
-- `RESEND_FROM_EMAIL`: verified Resend sender, for example `{{COMPANY_NAME}} <hello@example.com>`.
+- `RESEND_FROM_EMAIL`: verified Resend sender, for example `Soraya Safaris <admin@sorayasafaris.com>`.
 - `TURNSTILE_SECRET_KEY`: Cloudflare Turnstile secret key.
 - `TURNSTILE_REQUIRED`: set to `true` to reject submissions without a Turnstile token. Leave `false` if no-JavaScript form posts must remain accepted.
 - `MIN_SUBMIT_SECONDS`: minimum seconds between form render and submission. Defaults to `3`.
