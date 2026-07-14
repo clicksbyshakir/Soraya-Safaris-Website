@@ -696,7 +696,8 @@ button {
   display: grid;
   gap: var(--space-4) var(--space-6);
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin: var(--space-0);
+  /* margin-block only: .wrapper's margin-inline: auto must survive to centre this. */
+  margin-block: var(--space-0);
   padding-block: var(--space-6);
   padding-inline-start: var(--space-0);
   list-style: none;
@@ -886,7 +887,8 @@ button {
 .flow {
   display: grid;
   gap: var(--space-6);
-  margin: var(--space-0);
+  /* margin-block only: .wrapper's margin-inline: auto must survive to centre this. */
+  margin-block: var(--space-0);
   padding-inline-start: var(--space-0);
   list-style: none;
 }

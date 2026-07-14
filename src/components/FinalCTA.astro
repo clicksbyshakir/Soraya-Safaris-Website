@@ -3,9 +3,10 @@ type Props = {
   eyebrow: string;
   title: string;
   body: string;
+  cta?: string;
 };
 
-const { eyebrow, title, body } = Astro.props;
+const { eyebrow, title, body, cta = "Start a conversation" } = Astro.props;
 ---
 
 <section class="section final-cta">
@@ -15,6 +16,6 @@ const { eyebrow, title, body } = Astro.props;
       <h2>{title}</h2>
       <p>{body}</p>
     </div>
-    <a class="button button--primary" href="/contact">Start a conversation</a>
+    <a class="button button--primary" href="/contact">{cta}</a>
   </div>
 </section>

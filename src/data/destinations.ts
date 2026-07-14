@@ -1,11 +1,13 @@
 import type { ImageMetadata } from "astro";
 
-import giraffePair from "../assets/giraffe-pair.jpg";
-import giraffes from "../assets/giraffes.jpg";
-import heroLeopard from "../assets/hero-leopard.jpg";
-import kenyaSavannah from "../assets/kenya-savannah-hero.png";
-import lionDetail from "../assets/lion-detail.jpg";
-import lioness from "../assets/lioness.jpg";
+// Location photography, one image per park. Sources and licences: see CREDITS.md.
+import amboseli from "../assets/destinations/amboseli.jpg";
+import dianiBeach from "../assets/destinations/diani-beach.jpg";
+import laikipia from "../assets/destinations/laikipia.jpg";
+import lakeNakuru from "../assets/destinations/lake-nakuru.jpg";
+import maasaiMara from "../assets/destinations/maasai-mara.jpg";
+import samburu from "../assets/destinations/samburu.jpg";
+import tsavo from "../assets/destinations/tsavo.jpg";
 
 export type DestinationCardData = {
   name: string;
@@ -24,8 +26,8 @@ export const destinations: DestinationCardData[] = [
     name: "Maasai Mara",
     slug: "maasai-mara",
     region: "Southwest Kenya",
-    image: lioness,
-    imageAlt: "Lioness standing in green Maasai Mara brush.",
+    image: maasaiMara,
+    imageAlt: "A hot-air balloon drifting over a herd of zebra on the open Maasai Mara plains at dawn.",
     shortDescription:
       "Open grasslands, long horizons, and the kind of morning light that slows a drive to a whisper. Migration movement is seasonal and never guaranteed, so let's build your itinerary around timing, patience, and the right guiding.",
     bestSeason: "July to October for peak demand; January to March for quieter dry-season travel.",
@@ -36,8 +38,8 @@ export const destinations: DestinationCardData[] = [
     name: "Amboseli",
     slug: "amboseli",
     region: "Southern Kenya",
-    image: giraffes,
-    imageAlt: "Giraffe against a clear blue Amboseli-style sky.",
+    image: amboseli,
+    imageAlt: "A herd of elephants crossing the Amboseli plains beneath the snow-capped peak of Kilimanjaro.",
     shortDescription:
       "Wetlands, open plains, and elephant country with Kilimanjaro beyond when the clouds allow. If scale and gentle pacing matter to you, let's build your itinerary with Amboseli as an anchor.",
     bestSeason: "June to October and January to February are typically drier, with clear mornings often strongest.",
@@ -48,8 +50,8 @@ export const destinations: DestinationCardData[] = [
     name: "Tsavo East and West",
     slug: "tsavo-east-west",
     region: "Southeast Kenya",
-    image: kenyaSavannah,
-    imageAlt: "Wide Kenya savannah landscape with warm light and open distance.",
+    image: tsavo,
+    imageAlt: "A Tsavo elephant stained red by the park's iron-rich earth, walking across open bush.",
     shortDescription:
       "A vast southern wilderness where red earth, lava landscapes, springs, and open distance make the safari feel expansive. If you want a wilder rhythm, let's build your itinerary across both sides of Tsavo.",
     bestSeason: "June to October and January to February for drier travel; green season can be quieter and atmospheric.",
@@ -60,8 +62,8 @@ export const destinations: DestinationCardData[] = [
     name: "Lake Nakuru",
     slug: "lake-nakuru",
     region: "Rift Valley",
-    image: heroLeopard,
-    imageAlt: "Leopard resting in a tree near a Rift Valley woodland setting.",
+    image: lakeNakuru,
+    imageAlt: "Flamingos wading in the shallows of Lake Nakuru below the wooded Rift Valley escarpment.",
     shortDescription:
       "A compact Rift Valley landscape of lake, woodland, escarpment, birdlife, and rhino conservation. Flamingo numbers shift with lake conditions, so let's build your itinerary around the broader lake and woodland experience.",
     bestSeason: "Good year-round, with drier months often making wildlife viewing more straightforward.",
@@ -72,8 +74,8 @@ export const destinations: DestinationCardData[] = [
     name: "Samburu",
     slug: "samburu",
     region: "Northern Kenya",
-    image: lionDetail,
-    imageAlt: "Close view of a lion's eye and mane in warm northern Kenya light.",
+    image: samburu,
+    imageAlt: "A reticulated giraffe feeding among acacia in the dry hill country of northern Kenya.",
     shortDescription:
       "North of the familiar, the land turns dry, sculpted, and river-led, with wildlife shaped by the Ewaso Nyiro. If you want contrast beyond the classic circuit, let's build your itinerary north with care.",
     bestSeason: "June to October and December to March are often strong for dry-country viewing.",
@@ -84,8 +86,8 @@ export const destinations: DestinationCardData[] = [
     name: "Diani Beach",
     slug: "diani-beach",
     region: "Kenya Coast",
-    image: giraffePair,
-    imageAlt: "Two giraffes in soft light, used as a placeholder for approved Diani Beach imagery.",
+    image: dianiBeach,
+    imageAlt: "White sand and turquoise Indian Ocean water along the Kenyan coast at Diani.",
     shortDescription:
       "White-sand coast, slower mornings, and a softer finish after early drives and dusty roads. When safari should end with time to exhale, let's build your itinerary with the coast in the right place.",
     bestSeason: "December to March and July to October are popular; coastal weather varies by monsoon season.",
@@ -96,8 +98,8 @@ export const destinations: DestinationCardData[] = [
     name: "Laikipia",
     slug: "laikipia",
     region: "Central Highlands",
-    image: kenyaSavannah,
-    imageAlt: "Open highland savannah landscape used as a placeholder for approved Laikipia imagery.",
+    image: laikipia,
+    imageAlt: "An elephant and her calf grazing on the green highland plains of a Laikipia conservancy.",
     shortDescription:
       "Private conservancies, highland air, and a different kind of safari shaped by space, stewardship, and varied activities. If you want Kenya beyond the standard route, let's build your itinerary with Laikipia in the mix.",
     bestSeason: "June to October and January to February are often preferred, though conservancy experiences vary.",

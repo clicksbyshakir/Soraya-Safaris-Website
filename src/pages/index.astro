@@ -36,24 +36,24 @@ const whyUs = [
 
 const processSteps = [
   {
-    title: "Tell us your plans",
-    body: "Share your dates, who is travelling, and what you hope Kenya will feel like."
+    title: "Send one message",
+    body: "Your dates, who is coming, and what you hope Kenya will feel like. That is all we need to start."
   },
   {
-    title: "We design the route together",
-    body: "We talk through options, seasons, drive times, and camps in plain language, then draft your itinerary."
+    title: "We do the work",
+    body: "Seasons, routes, drive times, camps, and permits. We research it all and come back to you with a plan."
   },
   {
     title: "You get a clear quote",
-    body: "One tailored itinerary, one transparent price. Refine it with us as many times as you need."
+    body: "One itinerary, one honest price. Change anything you like, as many times as you like."
   },
   {
     title: "Confirm and pay securely",
-    body: "When the itinerary is right, you confirm it and pay through a secure payment link."
+    body: "Say yes, pay through a secure link, and everything after that is on us."
   },
   {
-    title: "Your safari begins",
-    body: "You travel with our Kenya team on the ground and a real person to call throughout the journey."
+    title: "You just show up",
+    body: "Transfers, guides, lodges, and logistics are handled. Your only job is to look out of the window."
   }
 ];
 ---
@@ -85,23 +85,24 @@ const processSteps = [
       <div class="wrapper split-layout">
         <div>
           <p class="eyebrow">Guided by home</p>
-          <h2>No two safaris we plan are ever the same.</h2>
+          <h2>No two safaris are ever the same.</h2>
           <p>
             We start with a conversation, not a catalogue. Your dates, your pace, the people
             you are travelling with, and the things you actually want to see are what shape
             the route from the very first draft.
           </p>
           <p>
-            From there we build the journey around you, and keep refining it until it reads
-            like your trip rather than a package someone else booked.
+            Then we handle the rest. Routes, camps, permits, drivers, timings, and the small
+            details you would never think to ask about are all taken care of, so the only
+            thing left for you to do is show up and look out of the window.
           </p>
         </div>
       <Image
         src={storyImage}
         alt="Two giraffes standing in green Kenya bush, used as a placeholder destination image."
-        widths={[240, 320, 480]}
-        sizes="(max-width: 760px) 25vw, 50vw"
-        quality={40}
+        widths={[480, 640, 768, 960, 1280, 1600]}
+        sizes="(max-width: 760px) 100vw, 50vw"
+        quality={62}
         loading="lazy"
         decoding="async"
       />
@@ -111,7 +112,7 @@ const processSteps = [
     <section class="section">
       <div class="wrapper section-head">
         <p class="eyebrow">Why us</p>
-        <h2>Planning rooted in Kenya, shaped entirely around you.</h2>
+        <h2>You dream it. We take care of everything else.</h2>
       </div>
       <div class="wrapper value-grid">
         {
@@ -128,7 +129,7 @@ const processSteps = [
     <section class="section split-feature">
       <div class="wrapper section-head">
         <p class="eyebrow">Featured destinations</p>
-        <h2>Start with the landscape, then we will shape the route.</h2>
+        <h2>Tell us where you have always wanted to wake up.</h2>
       </div>
       <div class="wrapper feature-grid">
         {
@@ -137,9 +138,9 @@ const processSteps = [
             <Image
               src={destination.image}
               alt={destination.imageAlt}
-              widths={[240, 320, 480]}
-              sizes="(max-width: 760px) 25vw, 33vw"
-              quality={40}
+              widths={[400, 560, 768, 960, 1200]}
+              sizes="(max-width: 760px) 100vw, 33vw"
+              quality={62}
               loading="lazy"
               decoding="async"
             />
@@ -176,7 +177,8 @@ const processSteps = [
 
     <FinalCTA
       eyebrow="Begin with a conversation"
-      title="Your Kenya journey begins with a conversation."
-      body="Share your dates, interests, and the kind of experience you imagine. We will help turn the first idea into a journey that feels entirely your own."
+      title="Your dream safari is a conversation away."
+      body="Tell us what you are imagining, even if the idea is still rough. We will take it from there."
+      cta="Get a free quote today"
     />
 </BaseLayout>
