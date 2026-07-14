@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Soraya Safaris icon">
-  <rect width="64" height="64" rx="32" fill="#2e4a3b"/>
-  <circle cx="32" cy="30" r="6" fill="#faf8f4"/>
-  <circle cx="32" cy="17" r="3" fill="#c8a15a"/>
-  <circle cx="44" cy="36" r="3" fill="#e8d8b5"/>
-  <circle cx="20" cy="36" r="3" fill="#e8d8b5"/>
-  <path d="M20 47c6.5-5.2 17.5-5.2 24 0" fill="none" stroke="#c8a15a" stroke-width="4" stroke-linecap="round"/>
-</svg>
