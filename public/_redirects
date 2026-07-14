@@ -2,8 +2,12 @@
 # The apex is canonical; www redirects to it.
 https://www.sorayasafaris.com/* https://sorayasafaris.com/:splat 301!
 
+# /about was a duplicate of /our-story and has been removed. Keep both forms
+# redirecting, so any existing inbound link or index entry still lands.
+/about /our-story 301!
+/about/ /our-story 301!
+
 # Trailing-slash normalization. The Astro site uses trailingSlash: "never".
-/about/ /about 301!
 /our-story/ /our-story 301!
 /destinations/ /destinations 301!
 /contact/ /contact 301!

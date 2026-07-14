@@ -34,7 +34,7 @@ export async function GET() {
   const tags = getTags(posts);
   const totalPages = getTotalPages(posts);
 
-  const staticPaths = ["/", "/about/", "/our-story/", "/destinations/", "/contact/", "/blog/"];
+  const staticPaths = ["/", "/our-story/", "/destinations/", "/contact/", "/blog/"];
   const paginatedPaths = Array.from({ length: Math.max(0, totalPages - 1) }, (_, index) =>
     blogPagePath(index + 2)
   );
