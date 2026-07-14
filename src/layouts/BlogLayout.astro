@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
 import {
   absoluteUrl,
   breadcrumbJsonLd,
@@ -153,76 +155,10 @@ const jsonLdItems = [
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header" data-header>
-      <nav class="nav wrapper" aria-label="Primary navigation">
-        <a class="brand" href="/" aria-label={`${SITE_NAME} home`}>
-          <span class="brand-mark" aria-hidden="true"></span>
-          <span>{SITE_NAME}</span>
-        </a>
-        <button class="nav-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false">
-          <span class="nav-toggle-line"></span>
-          <span class="nav-toggle-line"></span>
-          <span class="nav-toggle-line"></span>
-          <span class="sr-only">Open navigation</span>
-        </button>
-        <div class="nav-links" id="primary-navigation" data-nav-links>
-          <a href="/">Home</a>
-          <a href="/about">About Us</a>
-          <a href="/destinations">Destinations</a>
-          <a href="/blog" aria-current="page">Blog</a>
-          <a href="/contact" class="nav-cta">Contact</a>
-        </div>
-      </nav>
-    </header>
+    <SiteHeader />
     <main id="main" class="site-main">
       <slot />
     </main>
-    <footer class="site-footer">
-      <div class="wrapper footer-layout">
-        <div>
-          <a class="brand footer-brand" href="/" aria-label={`${SITE_NAME} home`}>
-            <span class="brand-mark" aria-hidden="true"></span>
-            <span>{SITE_NAME}</span>
-          </a>
-          <p>Tailor-made Kenya safaris, thoughtfully planned by people who call Kenya home.</p>
-          <p class="footer-locations">Nairobi - Boston - Ottawa</p>
-        </div>
-        <div class="footer-links" aria-label="Footer links">
-          <a href="/about">About Us</a>
-          <a href="/destinations">Destinations</a>
-          <a href="/blog">Blog</a>
-          <a href="/contact">Contact</a>
-        </div>
-        <p class="footer-note">
-          Contact details, social links, legal entity details, booking terms, and payment terms are still to be confirmed before launch.
-        </p>
-      </div>
-    </footer>
-    <script>
-      const header = document.querySelector("[data-header]");
-      const toggle = document.querySelector(".nav-toggle");
-      const links = document.querySelector("[data-nav-links]");
-
-      function setHeaderState() {
-        header?.classList.toggle("is-scrolled", window.scrollY > 12);
-      }
-
-      setHeaderState();
-      window.addEventListener("scroll", setHeaderState, { passive: true });
-
-      toggle?.addEventListener("click", () => {
-        const isOpen = links?.classList.toggle("is-open");
-        document.body.classList.toggle("nav-open", Boolean(isOpen));
-        toggle.setAttribute("aria-expanded", String(Boolean(isOpen)));
-      });
-
-      links?.addEventListener("click", (event) => {
-        if (event.target instanceof HTMLAnchorElement) {
-          links.classList.remove("is-open");
-          document.body.classList.remove("nav-open");
-          toggle?.setAttribute("aria-expanded", "false");
-        }
-      });
-    </script>
+    <SiteFooter />
   </body>
 </html>
