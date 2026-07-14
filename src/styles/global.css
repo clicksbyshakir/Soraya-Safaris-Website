@@ -66,7 +66,7 @@
   --container: 72rem;
   --container-narrow: 48rem;
   --page-gutter: var(--space-5);
-  --header-height: 4.5rem;
+  --header-height: 4.75rem;
   --tap-target: 2.75rem;
   --icon-size: 1.25rem;
 }
@@ -222,6 +222,23 @@ button {
   font-weight: var(--weight-bold);
   line-height: var(--line-tight);
   text-decoration: none;
+}
+
+/* The footer sits on midnight, and .site-wordmark hardcodes midnight text. */
+.site-footer .site-wordmark {
+  color: var(--color-ivory);
+}
+
+.site-wordmark__logo {
+  width: auto;
+  height: 3.25rem;
+  object-fit: contain;
+}
+
+@media (max-width: 26rem) {
+  .site-wordmark__logo {
+    height: 2.75rem;
+  }
 }
 
 .site-wordmark__mark {
