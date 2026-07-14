@@ -693,20 +693,45 @@ button {
 }
 
 .trust-items {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-  justify-content: center;
-  padding-block: var(--space-5);
+  display: grid;
+  gap: var(--space-4) var(--space-6);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: var(--space-0);
+  padding-block: var(--space-6);
+  padding-inline-start: var(--space-0);
+  list-style: none;
+  text-align: center;
 }
 
-.trust-items span {
-  border: var(--border-width) solid color-mix(in srgb, var(--color-ivory) 22%, transparent);
-  border-radius: var(--radius-pill);
-  padding: var(--space-2) var(--space-4);
-  color: color-mix(in srgb, var(--color-ivory) 88%, transparent);
+.trust-items li {
+  position: relative;
+  color: color-mix(in srgb, var(--color-ivory) 90%, transparent);
   font-size: var(--text-sm);
   font-weight: var(--weight-bold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Hairline divider between items, rather than a pill around each. */
+.trust-items li + li::before {
+  content: "";
+  position: absolute;
+  inset-block: -0.15rem;
+  inset-inline-start: calc(var(--space-6) / -2);
+  width: var(--border-width);
+  background: color-mix(in srgb, var(--color-gold) 42%, transparent);
+}
+
+@media (min-width: 48rem) {
+  .trust-items {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .trust-items li:nth-child(odd)::before {
+    content: none;
+  }
 }
 
 .story-band,
@@ -748,6 +773,7 @@ button {
 .destination-card h2,
 .route-notes h2,
 .narrow-copy h2,
+.split-layout h2,
 .values-layout h2 {
   margin: var(--space-0);
   color: var(--color-midnight);
@@ -760,13 +786,13 @@ button {
 .final-cta h2,
 .route-notes h2,
 .narrow-copy h2,
+.split-layout h2,
 .values-layout h2 {
   font-size: var(--text-3xl);
 }
 
 .section-head p,
 .value-card p,
-.process-step p,
 .destination-card p,
 .destination-card dd,
 .route-notes p,
@@ -787,7 +813,6 @@ button {
 }
 
 .value-card,
-.process-step,
 .founder-card,
 .destination-card,
 .map-note,
@@ -801,7 +826,6 @@ button {
 }
 
 .value-card,
-.process-step,
 .map-note,
 .route-notes article,
 .blog-card {
@@ -809,7 +833,6 @@ button {
 }
 
 .value-card h3,
-.process-step h3,
 .founder-card h3,
 .photo-card h3,
 .blog-card h2 {
@@ -858,29 +881,81 @@ button {
   text-transform: uppercase;
 }
 
-.process-steps {
+/* How it works: connected nodes, so the sequence reads as one path rather
+   than five separate cards. Vertical on small screens, horizontal above 60rem. */
+.flow {
   display: grid;
-  gap: var(--space-5);
+  gap: var(--space-6);
+  margin: var(--space-0);
   padding-inline-start: var(--space-0);
   list-style: none;
-  counter-reset: process;
 }
 
-.process-step {
-  counter-increment: process;
+.flow__step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: start;
 }
 
-.process-step::before {
-  content: counter(process, decimal-leading-zero);
+.flow__marker {
+  z-index: 1;
   width: 2.75rem;
   height: 2.75rem;
-  display: inline-grid;
+  display: grid;
   place-items: center;
-  margin-block-end: var(--space-5);
+  border: var(--border-width) solid color-mix(in srgb, var(--color-gold) 60%, transparent);
   border-radius: var(--radius-pill);
   background: var(--color-acacia);
   color: var(--color-ivory);
   font-weight: var(--weight-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Connector drawn from each marker to the next. */
+.flow__step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 2.75rem;
+  inset-inline-start: calc(1.375rem - (var(--border-width) / 2));
+  width: var(--border-width);
+  height: calc(100% + var(--space-6) - 2.75rem);
+  background: color-mix(in srgb, var(--color-gold) 50%, transparent);
+}
+
+.flow__body h3 {
+  margin: var(--space-0);
+  color: var(--color-midnight);
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-heading);
+}
+
+.flow__body p {
+  margin: var(--space-2) var(--space-0) var(--space-0);
+  color: var(--color-ink-muted);
+}
+
+@media (min-width: 60rem) {
+  .flow {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: var(--space-5);
+  }
+
+  .flow__step {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+    justify-items: center;
+    text-align: center;
+  }
+
+  .flow__step:not(:last-child)::before {
+    inset-block-start: calc(1.375rem - (var(--border-width) / 2));
+    inset-inline-start: calc(50% + 1.75rem);
+    width: calc(100% - 2.75rem + var(--space-5));
+    height: var(--border-width);
+  }
 }
 
 .narrow-copy {
@@ -1024,10 +1099,6 @@ button {
 
   .destination-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .process-steps {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .final-cta__inner {

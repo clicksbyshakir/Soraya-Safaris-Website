@@ -18,9 +18,9 @@ const whyUs = [
       "Our planning starts from a lived connection to Kenya, not a reseller's list of parks and lodges."
   },
   {
-    title: "Custom itineraries built with you",
+    title: "Curated for you, never off the shelf",
     body:
-      "We shape the route around your dates, group, pace, interests, and comfort level instead of handing you a fixed package."
+      "The route is shaped around your dates, your group, your pace, and the things you actually care about seeing. Nothing is lifted from a fixed package."
   },
   {
     title: "An on-the-ground team in Nairobi",
@@ -28,32 +28,32 @@ const whyUs = [
       "Planning is supported by local presence, current context, and people close to the journey as it unfolds."
   },
   {
-    title: "North American planning and support",
+    title: "Nairobi, Boston, and Ottawa",
     body:
-      "With founders connected to Canada and the United States, questions are easier to ask before you cross the ocean."
+      "With offices on both sides of the ocean, your questions get answered in your own time zone, long before you fly."
   }
 ];
 
 const processSteps = [
   {
-    title: "Reach out",
-    body: "Tell us your dates, group, priorities, travel style, and what you are hoping Kenya will feel like."
+    title: "Tell us your plans",
+    body: "Share your dates, who is travelling, and what you hope Kenya will feel like."
   },
   {
-    title: "We design it together",
-    body: "We explain the route options, seasonal tradeoffs, drive times, and lodge direction in plain language."
+    title: "We design the route together",
+    body: "We talk through options, seasons, drive times, and camps in plain language, then draft your itinerary."
   },
   {
-    title: "Transparent quote",
-    body: "You receive a tailored itinerary and clear quote before deciding what to refine or confirm."
+    title: "You get a clear quote",
+    body: "One tailored itinerary, one transparent price. Refine it with us as many times as you need."
   },
   {
-    title: "Secure payment",
-    body: "When the itinerary is ready, payment is handled through an agreed secure payment link. No checkout is built into this static site."
+    title: "Confirm and pay securely",
+    body: "When the itinerary is right, you confirm it and pay through a secure payment link."
   },
   {
-    title: "Your safari",
-    body: "You travel with the support of our Kenya team on the ground and clear contacts throughout the journey."
+    title: "Your safari begins",
+    body: "You travel with our Kenya team on the ground and a real person to call throughout the journey."
   }
 ];
 ---
@@ -66,32 +66,34 @@ const processSteps = [
   jsonLd={organizationJsonLd()}
 >
     <Hero
-      eyebrow="Kenya is home"
-      title="Kenya is home. Let the stars guide you to the savannah."
+      title="Let the stars guide you to the savannah."
       body="Private Kenya safaris, thoughtfully planned by people who call Kenya home."
       image={heroImage}
       alt="Leopard resting in a tree in Kenya, used as a warm safari hero image."
     />
 
     <section class="trust-strip" aria-label="What travelers can expect">
-      <div class="wrapper trust-items">
-        <span>Kenya-focused</span>
-        <span>Locally grounded</span>
-        <span>Personally planned</span>
-        <span>Supported from start to finish</span>
-      </div>
+      <ul class="wrapper trust-items">
+        <li>Kenya-focused</li>
+        <li>Locally grounded</li>
+        <li>Curated for every traveler</li>
+        <li>Supported start to finish</li>
+      </ul>
     </section>
 
     <section class="section story-band">
       <div class="wrapper split-layout">
         <div>
           <p class="eyebrow">Guided by home</p>
-          <h2>A safari should feel considered from the first idea.</h2>
-          <!-- TODO: review copy -->
+          <h2>No two safaris we plan are ever the same.</h2>
           <p>
-            A Kenya safari is more than a list of parks and lodges. It is the rhythm of
-            early mornings, open roads, quiet evenings, and the people who make each place
-            feel known. We bring those parts together into a journey designed around you.
+            We start with a conversation, not a catalogue. Your dates, your pace, the people
+            you are travelling with, and the things you actually want to see are what shape
+            the route from the very first draft.
+          </p>
+          <p>
+            From there we build the journey around you, and keep refining it until it reads
+            like your trip rather than a package someone else booked.
           </p>
         </div>
       <Image
@@ -109,13 +111,12 @@ const processSteps = [
     <section class="section">
       <div class="wrapper section-head">
         <p class="eyebrow">Why us</p>
-        <h2>Planning rooted in Kenya, shaped for North American travelers.</h2>
+        <h2>Planning rooted in Kenya, shaped entirely around you.</h2>
       </div>
       <div class="wrapper value-grid">
         {
           whyUs.map((item) => (
             <article class="value-card">
-              <!-- TODO: review copy -->
               <h3>{item.title}</h3>
               <p>{item.body}</p>
             </article>
@@ -156,15 +157,17 @@ const processSteps = [
     <section class="section">
       <div class="wrapper section-head">
         <p class="eyebrow">How it works</p>
-        <h2>A clear journey from first idea to Kenya.</h2>
+        <h2>From your first message to your first sunrise.</h2>
       </div>
-      <ol class="wrapper process-steps">
+      <ol class="wrapper flow">
         {
-          processSteps.map((step) => (
-            <li class="process-step">
-              <!-- TODO: review copy -->
-              <h3>{step.title}</h3>
-              <p>{step.body}</p>
+          processSteps.map((step, index) => (
+            <li class="flow__step">
+              <span class="flow__marker" aria-hidden="true">{index + 1}</span>
+              <div class="flow__body">
+                <h3>{step.title}</h3>
+                <p>{step.body}</p>
+              </div>
             </li>
           ))
         }
