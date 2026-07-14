@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+import type { DestinationCardData } from "../data/destinations";
+
+type Props = {
+  destination: DestinationCardData;
+};
+
+const { destination } = Astro.props;
+---
+
+<article class="destination-card" id={destination.slug}>
+  <Image
+    class="destination-card-image"
+    src={destination.image}
+    alt={destination.imageAlt}
+    widths={[240, 320, 480, 640]}
+    sizes="(max-width: 760px) 50vw, 50vw"
+    quality={50}
+    loading="lazy"
+    decoding="async"
+  />
+  <div class="destination-card-body">
+    <p class="card-kicker">{destination.region}</p>
+    <h2>{destination.name}</h2>
+    <p>{destination.shortDescription}</p>
+    <dl class="card-meta">
+      <div>
+        <dt>Best season</dt>
+        <dd>{destination.bestSeason}</dd>
+      </div>
+      <div>
+        <dt>Signature experiences</dt>
+        <dd>
+          <ul class="experience-list">
+            {destination.signatureExperiences.map((experience) => <li>{experience}</li>)}
+          </ul>
+        </dd>
+      </div>
+      <div>
+        <dt>Pairs well with</dt>
+        <dd>{destination.suggestedPairing}</dd>
+      </div>
+    </dl>
+    <a class="text-link" href="/contact">Let's build your itinerary</a>
+  </div>
+</article>

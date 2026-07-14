@@ -1,0 +1,37 @@
+---
+import AboutSections from "../components/AboutSections.astro";
+import FinalCTA from "../components/FinalCTA.astro";
+import Hero from "../components/Hero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import heroImage from "../assets/kenya-savannah-hero.png";
+import { pageTitle } from "../lib/site";
+
+const description =
+  "Meet the Kenya-rooted perspective behind {{COMPANY_NAME}} and the story that guides each safari journey.";
+---
+
+<BaseLayout
+  title={pageTitle("Our Story")}
+  description={description}
+  canonicalPath="/our-story"
+  current="about"
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Our Story", path: "/our-story" }
+  ]}
+>
+    <Hero
+      compact
+      eyebrow="Our story"
+      title="Kenya is not just where we work. It is home."
+      body="Three friends, three cities, and one shared responsibility: helping travelers experience Kenya with clarity, care, and local grounding."
+      image={heroImage}
+      alt="Warm Kenya savannah landscape used as a placeholder for approved about page imagery."
+    />
+    <AboutSections />
+    <FinalCTA
+      eyebrow="Find your way through Kenya"
+      title="Let us help you find your way through Kenya."
+      body="Tell us what you are imagining, even if the idea is still early. We will help make the choices clear."
+    />
+</BaseLayout>

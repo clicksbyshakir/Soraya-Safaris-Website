@@ -1,0 +1,20 @@
+---
+type Props = {
+  eyebrow: string;
+  title: string;
+  body: string;
+};
+
+const { eyebrow, title, body } = Astro.props;
+---
+
+<section class="section final-cta">
+  <div class="container final-cta__inner">
+    <div>
+      <p class="eyebrow">{eyebrow}</p>
+      <h2>{title}</h2>
+      <p>{body}</p>
+    </div>
+    <a class="button button--primary" href="/contact">Start a conversation</a>
+  </div>
+</section>

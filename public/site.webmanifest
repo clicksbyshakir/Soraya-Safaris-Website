@@ -1,0 +1,24 @@
+{
+  "name": "{{COMPANY_NAME}}",
+  "short_name": "{{COMPANY_NAME}}",
+  "description": "Tailor-made Kenya safaris, thoughtfully planned by people who call Kenya home.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FAF8F4",
+  "theme_color": "#0B1D34",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+name = "safari-inquiry"
+main = "src/index.js"
+compatibility_date = "2026-07-14"
+workers_dev = true
+
+[vars]
+ALLOWED_ORIGIN = "https://example.com"
+INQUIRY_TO_EMAIL = "founders@example.com"
+RESEND_FROM_EMAIL = "{{COMPANY_NAME}} <hello@example.com>"
+MIN_SUBMIT_SECONDS = "3"
+RATE_LIMIT_WINDOW_SECONDS = "900"
+RATE_LIMIT_MAX_REQUESTS = "5"
+TURNSTILE_REQUIRED = "false"
+DRY_RUN = "false"

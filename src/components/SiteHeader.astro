@@ -1,0 +1,110 @@
+---
+const companyName = "{{COMPANY_NAME}}";
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/our-story" },
+  { label: "Destinations", href: "/destinations" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" }
+];
+
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
+
+function isCurrent(href: string) {
+  const normalized = href.replace(/\/$/, "") || "/";
+  if (normalized === "/") {
+    return pathname === "/";
+  }
+  return pathname === normalized || pathname.startsWith(`${normalized}/`);
+}
+---
+
+<header class="site-header" data-site-header>
+  <nav class="site-nav container" aria-label="Primary navigation" data-site-nav data-open="false">
+    <a class="site-wordmark" href="/" aria-label={`${companyName} home`}>
+      <img
+        class="site-wordmark__mark"
+        src="/assets/favicon.svg"
+        alt=""
+        width="44"
+        height="44"
+        decoding="async"
+      />
+      <span>{companyName}</span>
+    </a>
+
+    <button
+      class="site-nav__toggle"
+      type="button"
+      aria-controls="primary-navigation"
+      aria-expanded="false"
+      aria-label="Open navigation"
+      data-nav-toggle
+    >
+      <span class="site-nav__toggle-lines" aria-hidden="true"></span>
+    </button>
+
+    <div class="site-nav__links" id="primary-navigation" data-nav-menu>
+      {navItems.map((item) => (
+        <a
+          class="site-nav__link"
+          href={item.href}
+          aria-current={isCurrent(item.href) ? "page" : undefined}
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </nav>
+</header>
+
+<script is:inline>
+  (() => {
+    const header = document.querySelector("[data-site-header]");
+    const nav = document.querySelector("[data-site-nav]");
+    const toggle = document.querySelector("[data-nav-toggle]");
+    const menu = document.querySelector("[data-nav-menu]");
+
+    if (!nav || !toggle || !menu) return;
+
+    const closeMenu = () => {
+      nav.dataset.open = "false";
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Open navigation");
+    };
+
+    const setHeaderState = () => {
+      if (header) {
+        header.toggleAttribute("data-scrolled", window.scrollY > 8);
+      }
+    };
+
+    toggle.addEventListener("click", () => {
+      const isOpen = nav.dataset.open === "true";
+      nav.dataset.open = String(!isOpen);
+      toggle.setAttribute("aria-expanded", String(!isOpen));
+      toggle.setAttribute("aria-label", isOpen ? "Open navigation" : "Close navigation");
+    });
+
+    menu.addEventListener("click", (event) => {
+      if (event.target instanceof HTMLAnchorElement) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.matchMedia("(min-width: 52rem)").matches) {
+        closeMenu();
+      }
+    });
+
+    setHeaderState();
+    window.addEventListener("scroll", setHeaderState, { passive: true });
+  })();
+</script>

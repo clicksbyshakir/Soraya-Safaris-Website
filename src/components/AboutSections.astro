@@ -1,0 +1,137 @@
+---
+import { Image } from "astro:assets";
+
+import founderPlaceholderOne from "../assets/kenya-savannah-hero.png";
+import founderPlaceholderThree from "../assets/giraffes.jpg";
+import founderPlaceholderTwo from "../assets/giraffe-pair.jpg";
+
+const founders = [
+  {
+    name: "Founder One",
+    city: "Nairobi, Kenya",
+    image: founderPlaceholderOne,
+    alt: "Placeholder founder portrait for the Nairobi co-founder; replace with approved photo.",
+    bio:
+      "Born in Kenya and based in Nairobi, this co-founder gives the company an active local presence before, during, and after each journey."
+  },
+  {
+    name: "Founder Two",
+    city: "Boston, United States",
+    image: founderPlaceholderTwo,
+    alt: "Placeholder founder portrait for the Boston co-founder; replace with approved photo.",
+    bio:
+      "Born in Kenya and now based in Boston, this co-founder bridges Kenyan roots with the questions and expectations of U.S. travelers."
+  },
+  {
+    name: "Founder Three",
+    city: "Ottawa, Canada",
+    image: founderPlaceholderThree,
+    alt: "Placeholder founder portrait for the Ottawa co-founder; replace with approved photo.",
+    bio:
+      "Raised in Kenya and now based in Ottawa, this co-founder brings a Canadian planning perspective alongside a personal understanding of Kenya."
+  }
+];
+
+const values = [
+  "Guidance that makes unfamiliar choices feel clear.",
+  "Home-level care from people with real Kenyan roots.",
+  "Discovery-led planning instead of fixed packages.",
+  "Stewardship for wildlife, guides, communities, and landscapes.",
+  "Clarity around pacing, seasons, inclusions, and next steps."
+];
+---
+
+<section class="section story-opening">
+  <div class="wrapper narrow-copy">
+    <p class="eyebrow">Our story</p>
+    <h2>Three friends. Three cities. One home in Kenya.</h2>
+    <!-- TODO: review copy -->
+    <p>
+      Kenya is not a product we discovered from the outside. It is where our roots,
+      friendships, memories, and local relationships begin. We plan safaris with that
+      sense of responsibility, because a journey through Kenya should feel personal,
+      clear, and connected to place.
+    </p>
+    <!-- TODO: review copy -->
+    <p>
+      Our working story takes inspiration from the Pleiades, the bright cluster of stars
+      that helped travelers find their way and marked the turning of seasons. That is
+      how we want planning to feel: steady guidance from the first idea to the last
+      night under the stars.
+    </p>
+  </div>
+</section>
+
+<section class="section split-feature">
+  <div class="wrapper split-layout">
+    <div>
+      <p class="eyebrow">Nairobi, Boston, Ottawa</p>
+      <h2>A three-country presence is part of the care.</h2>
+      <!-- TODO: review copy -->
+      <p>
+        North American travelers can plan in familiar time zones with people who understand
+        long-haul questions, family logistics, and the need for clear communication. In
+        Kenya, the work continues through local coordination, route knowledge, and in-trip care.
+      </p>
+    </div>
+    <Image
+      src={founderPlaceholderOne}
+      alt="Open Kenya landscape used as a placeholder for approved founder or team imagery."
+      widths={[240, 320, 480, 640]}
+      sizes="(max-width: 760px) 50vw, 50vw"
+      quality={50}
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrapper section-head">
+    <p class="eyebrow">Founders</p>
+    <h2>Placeholder founder profiles for review.</h2>
+  </div>
+  <div class="wrapper founder-grid">
+    {
+      founders.map((founder) => (
+        <article class="founder-card">
+          <!-- TODO: replace placeholder founder photo and review copy -->
+          <Image
+            class="founder-image"
+            src={founder.image}
+            alt={founder.alt}
+            widths={[240, 320, 480]}
+            sizes="(max-width: 760px) 50vw, 33vw"
+            quality={50}
+            loading="lazy"
+            decoding="async"
+          />
+          <div>
+            <p class="card-kicker">{founder.city}</p>
+            <h3>{founder.name}</h3>
+            <p>Co-founder</p>
+            <p>{founder.bio}</p>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<section class="section values-section">
+  <div class="wrapper values-layout">
+    <div>
+      <p class="eyebrow">What guides us</p>
+      <h2>We recommend what fits the guest, not what is easiest to sell.</h2>
+      <!-- TODO: review copy -->
+      <p>
+        We listen first, explain the tradeoffs, and shape each route around the people
+        traveling: dates, pace, comfort level, wildlife hopes, and the kind of Kenya
+        they want to understand.
+      </p>
+    </div>
+    <ul class="value-list">
+      {values.map((value) => <li>{value}</li>)}
+    </ul>
+  </div>
+</section>

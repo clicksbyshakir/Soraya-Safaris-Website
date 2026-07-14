@@ -1,0 +1,13 @@
+# Cloudflare Pages redirect rules.
+# Replace example.com with the confirmed apex production domain before launch.
+https://www.example.com/* https://example.com/:splat 301!
+
+# Trailing-slash normalization. The Astro site uses trailingSlash: "never".
+/about/ /about 301!
+/our-story/ /our-story 301!
+/destinations/ /destinations 301!
+/contact/ /contact 301!
+/blog/ /blog 301!
+/blog/page/:page/ /blog/page/:page 301!
+/blog/tag/:tag/ /blog/tag/:tag 301!
+/blog/:slug/ /blog/:slug 301!

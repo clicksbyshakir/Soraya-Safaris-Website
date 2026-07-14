@@ -1,0 +1,62 @@
+---
+const year = new Date().getFullYear();
+const companyName = "{{COMPANY_NAME}}";
+
+const footerNav = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/our-story" },
+  { label: "Destinations", href: "/destinations" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" }
+];
+
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <a class="site-wordmark" href="/" aria-label={`${companyName} home`}>
+        <img
+          class="site-wordmark__mark"
+          src="/assets/favicon.svg"
+          alt=""
+          width="44"
+          height="44"
+          loading="lazy"
+          decoding="async"
+        />
+        <span>{companyName}</span>
+      </a>
+      <p class="site-footer__tagline">Guided by home, under the stars.</p>
+      <p class="site-footer__statement">
+        Kenya is home. Every journey is planned with local knowledge, clear guidance, and personal care.
+      </p>
+    </div>
+
+    <div class="site-footer__columns">
+      <div>
+        <h2 class="site-footer__heading">Explore</h2>
+        <nav class="site-footer__links" aria-label="Footer navigation">
+          {footerNav.map((item) => <a href={item.href}>{item.label}</a>)}
+        </nav>
+      </div>
+      <div>
+        <h2 class="site-footer__heading">Contact</h2>
+        <div class="site-footer__links">
+          <span>Contact details to confirm</span>
+          <span>Nairobi - Boston - Ottawa</span>
+        </div>
+      </div>
+      <div>
+        <h2 class="site-footer__heading">Social</h2>
+        <div class="site-footer__links">
+          <span>Social links to confirm</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container site-footer__bottom">
+    <p>&copy; {year} {companyName}. All rights reserved.</p>
+    <p>Tailor-made Kenya safaris, thoughtfully planned by people who call Kenya home.</p>
+  </div>
+</footer>

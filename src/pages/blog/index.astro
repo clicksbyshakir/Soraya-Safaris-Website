@@ -1,0 +1,240 @@
+---
+import BlogCard from "../../components/BlogCard.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
+import {
+  blogPagePath,
+  getPagePosts,
+  getPublishedPosts,
+  getTags,
+  getTotalPages,
+  POSTS_PER_PAGE,
+  tagPath
+} from "../../lib/blog";
+import { DEFAULT_OG_IMAGE, pageTitle } from "../../lib/site";
+
+const posts = await getPublishedPosts();
+const pagePosts = getPagePosts(posts, 1);
+const totalPages = getTotalPages(posts);
+const tags = getTags(posts);
+---
+
+<BlogLayout
+  title={pageTitle("Blog")}
+  description="Kenya safari planning notes, seasonal guidance, and field-informed ideas from people who call Kenya home."
+  canonicalPath="/blog"
+  ogImage={DEFAULT_OG_IMAGE}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" }
+  ]}
+>
+  <section class="blog-index">
+    <div class="container blog-index__hero">
+      <p class="blog-index__eyebrow">Safari stories</p>
+      <h1>Field notes for planning Kenya with care.</h1>
+      <p>
+        Practical, personal guidance for travelers shaping a Kenya safari from North America.
+      </p>
+    </div>
+
+    <div class="container blog-index__content">
+      {tags.length > 0 && (
+        <nav class="blog-tags" aria-label="Blog tags">
+          <span>Explore by topic</span>
+          {tags.map((tag) => (
+            <a href={tagPath(tag.label)}>
+              {tag.label}
+              <span aria-label={`${tag.count} posts`}>{tag.count}</span>
+            </a>
+          ))}
+        </nav>
+      )}
+
+      {pagePosts.length > 0 ? (
+        <div class="blog-grid" aria-label="Blog posts">
+          {pagePosts.map((post) => <BlogCard post={post} />)}
+        </div>
+      ) : (
+        <section class="blog-empty" aria-labelledby="empty-blog-title">
+          <p class="blog-index__eyebrow">Stories coming soon</p>
+          <h2 id="empty-blog-title">Safari stories are being prepared.</h2>
+          <p>
+            Planning notes and Kenya travel stories will appear here after editorial review.
+          </p>
+        </section>
+      )}
+
+      {totalPages > 1 && (
+        <nav class="blog-pagination" aria-label="Blog pagination">
+          <span aria-current="page">1</span>
+          {
+            Array.from({ length: totalPages - 1 }, (_, index) => index + 2).map((page) => (
+              <a href={blogPagePath(page)}>{page}</a>
+            ))
+          }
+          <a href={blogPagePath(2)}>Next</a>
+        </nav>
+      )}
+
+      {posts.length > POSTS_PER_PAGE && (
+        <p class="blog-index__note">
+          Showing 1-{Math.min(POSTS_PER_PAGE, posts.length)} of {posts.length} stories.
+        </p>
+      )}
+    </div>
+  </section>
+</BlogLayout>
+
+<style>
+  .blog-index {
+    padding-block: var(--space-16);
+  }
+
+  .blog-index__hero {
+    max-width: 52rem;
+    display: grid;
+    gap: var(--space-4);
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .blog-index__eyebrow {
+    margin: 0;
+    color: var(--color-clay);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+  }
+
+  .blog-index__hero h1,
+  .blog-empty h2 {
+    margin: 0;
+    color: var(--color-midnight);
+    font-family: var(--font-display);
+    font-size: var(--text-5xl);
+    font-weight: var(--weight-semibold);
+    line-height: var(--line-heading);
+    overflow-wrap: anywhere;
+  }
+
+  .blog-index__hero p,
+  .blog-empty p,
+  .blog-index__note {
+    margin: 0;
+    color: var(--color-ink-muted);
+    font-size: var(--text-md);
+  }
+
+  .blog-index__content {
+    display: grid;
+    gap: var(--space-8);
+    padding-block-start: var(--space-12);
+  }
+
+  .blog-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .blog-tags span {
+    color: var(--color-ink-muted);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+  }
+
+  .blog-tags a {
+    min-height: 2.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-pill);
+    background: var(--color-surface-raised);
+    padding-inline: var(--space-3);
+    color: var(--color-midnight);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    text-decoration: none;
+  }
+
+  .blog-tags a:hover {
+    border-color: var(--color-gold);
+    color: var(--color-clay);
+  }
+
+  .blog-tags a span {
+    color: var(--color-clay);
+    font-size: var(--text-xs);
+  }
+
+  .blog-grid {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 44rem) {
+    .blog-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 68rem) {
+    .blog-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .blog-empty {
+    display: grid;
+    gap: var(--space-4);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-raised);
+    padding: var(--space-8);
+  }
+
+  .blog-empty h2 {
+    font-size: var(--text-3xl);
+  }
+
+  .blog-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .blog-pagination a,
+  .blog-pagination span {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-raised);
+    padding-inline: var(--space-3);
+    color: var(--color-midnight);
+    font-weight: var(--weight-bold);
+    text-decoration: none;
+  }
+
+  .blog-pagination span {
+    border-color: var(--color-midnight);
+    background: var(--color-midnight);
+    color: var(--color-ivory);
+  }
+
+  .blog-pagination a:hover {
+    border-color: var(--color-gold);
+    color: var(--color-clay);
+  }
+
+  .blog-index__note {
+    text-align: center;
+  }
+</style>

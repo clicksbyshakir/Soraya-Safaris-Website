@@ -1,0 +1,92 @@
+---
+import DestinationCard from "../components/DestinationCard.astro";
+import FinalCTA from "../components/FinalCTA.astro";
+import Hero from "../components/Hero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { destinations } from "../data/destinations";
+import heroImage from "../assets/giraffe-pair.jpg";
+import { pageTitle } from "../lib/site";
+
+const description =
+  "Explore Kenya safari destinations including Maasai Mara, Amboseli, Tsavo, Lake Nakuru, Samburu, Laikipia, and the coast.";
+---
+
+<BaseLayout
+  title={pageTitle("Destinations")}
+  description={description}
+  canonicalPath="/destinations"
+  current="destinations"
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Destinations", path: "/destinations" }
+  ]}
+>
+    <Hero
+      compact
+      eyebrow="Destinations"
+      title="Kenya changes every few hours."
+      body="Open plains, wetlands, northern dry country, red earth, Rift Valley lakes, highland conservancies, and the coast can all shape a very different safari."
+      image={heroImage}
+      alt="Two giraffes standing in green Kenya bush, used as a placeholder destinations hero image."
+    />
+
+    <section class="section">
+      <div class="wrapper section-head">
+        <p class="eyebrow">Where to begin</p>
+        <h2>Seven landscapes, countless ways to experience Kenya.</h2>
+        <!-- TODO: review copy -->
+        <p>
+          The right route depends on season, pace, group style, and how much variety you
+          want between wildlife regions. Use these cards as a starting point; the real work
+          is choosing what belongs together.
+        </p>
+      </div>
+      <div class="wrapper map-note" role="img" aria-label="Text alternative for a Kenya route map. Maasai Mara sits in the southwest, Amboseli and Tsavo in the south and southeast, Lake Nakuru in the Rift Valley, Samburu and Laikipia in the north and central highlands, and Diani Beach on the coast.">
+        <p class="eyebrow">Route context</p>
+        <p>
+          Southwest: Maasai Mara. South: Amboseli. Southeast: Tsavo East and West.
+          Rift Valley: Lake Nakuru. North and central highlands: Samburu and Laikipia.
+          Coast: Diani Beach.
+        </p>
+      </div>
+    </section>
+
+    <section class="section destinations-section" aria-label="Kenya destination overview">
+      <div class="wrapper destination-grid">
+        {destinations.map((destination) => <DestinationCard destination={destination} />)}
+      </div>
+    </section>
+
+    <section class="section split-feature">
+      <div class="wrapper route-notes">
+        <article>
+          <p class="eyebrow">Seasonal context</p>
+          <h2>Season changes the feel of the same route.</h2>
+          <!-- TODO: review copy -->
+          <p>
+            Dry months can make wildlife viewing more straightforward. Green months can bring
+            softer light, quieter lodges, and beautiful landscapes. Migration movement in the
+            Mara, mountain views in Amboseli, and flamingo concentrations at Nakuru all depend
+            on natural conditions, so we plan with honesty rather than promises.
+          </p>
+        </article>
+        <article>
+          <p class="eyebrow">Suggested combinations</p>
+          <h2>Build contrast without rushing.</h2>
+          <!-- TODO: review copy -->
+          <p>
+            First-time guests often combine Amboseli, Lake Nakuru, and Maasai Mara. Travelers
+            who want a quieter northern arc may choose Samburu, Laikipia, and the Mara. For a
+            southern wilderness and beach finish, Amboseli, Tsavo, and Diani can make the journey
+            feel broad and balanced.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <FinalCTA
+      eyebrow="Not sure where to begin?"
+      title="Tell us the month, the pace, and what you hope to feel."
+      body="We will help choose the landscapes that belong together, then shape the itinerary around you."
+    />
+</BaseLayout>

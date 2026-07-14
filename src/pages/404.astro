@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+import { pageTitle } from "../lib/site";
+---
+
+<BaseLayout
+  title={pageTitle("404")}
+  description="This page could not be found. Continue exploring Kenya safari destinations or start an inquiry."
+  canonicalPath="/404"
+>
+  <section class="page-stub not-found">
+    <div class="container container--narrow page-stub__inner">
+      <p class="eyebrow">Page not found</p>
+      <h1 class="page-stub__title">The trail went quiet.</h1>
+      <p class="page-stub__text">
+        The page you were looking for may have moved. You can return to the destination guide or start a safari conversation.
+      </p>
+      <div class="not-found__actions">
+        <Button href="/destinations">Explore destinations</Button>
+        <Button href="/contact" variant="secondary">Book a Safari</Button>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .not-found {
+      min-height: 62vh;
+      display: grid;
+      align-items: center;
+    }
+
+    .not-found__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+  </style>
+</BaseLayout>

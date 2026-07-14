@@ -1,0 +1,179 @@
+---
+import { Image } from "astro:assets";
+
+import FinalCTA from "../components/FinalCTA.astro";
+import Hero from "../components/Hero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { destinations } from "../data/destinations";
+import heroImage from "../assets/hero-leopard.jpg";
+import storyImage from "../assets/giraffe-pair.jpg";
+import { organizationJsonLd, pageTitle } from "../lib/site";
+
+const description = "Private Kenya safaris, thoughtfully planned by people who call Kenya home.";
+
+const whyUs = [
+  {
+    title: "Born-and-raised local knowledge",
+    body:
+      "Our planning starts from a lived connection to Kenya, not a reseller's list of parks and lodges."
+  },
+  {
+    title: "Custom itineraries built with you",
+    body:
+      "We shape the route around your dates, group, pace, interests, and comfort level instead of handing you a fixed package."
+  },
+  {
+    title: "An on-the-ground team in Nairobi",
+    body:
+      "Planning is supported by local presence, current context, and people close to the journey as it unfolds."
+  },
+  {
+    title: "North American planning and support",
+    body:
+      "With founders connected to Canada and the United States, questions are easier to ask before you cross the ocean."
+  }
+];
+
+const processSteps = [
+  {
+    title: "Reach out",
+    body: "Tell us your dates, group, priorities, travel style, and what you are hoping Kenya will feel like."
+  },
+  {
+    title: "We design it together",
+    body: "We explain the route options, seasonal tradeoffs, drive times, and lodge direction in plain language."
+  },
+  {
+    title: "Transparent quote",
+    body: "You receive a tailored itinerary and clear quote before deciding what to refine or confirm."
+  },
+  {
+    title: "Secure payment",
+    body: "When the itinerary is ready, payment is handled through an agreed secure payment link. No checkout is built into this static site."
+  },
+  {
+    title: "Your safari",
+    body: "You travel with the support of our Kenya team on the ground and clear contacts throughout the journey."
+  }
+];
+---
+
+<BaseLayout
+  title={pageTitle("Home")}
+  description={description}
+  canonicalPath="/"
+  current="home"
+  jsonLd={organizationJsonLd()}
+>
+    <Hero
+      eyebrow="Kenya is home"
+      title="Kenya is home. Let the stars guide you to the savannah."
+      body="Private Kenya safaris, thoughtfully planned by people who call Kenya home."
+      image={heroImage}
+      alt="Leopard resting in a tree in Kenya, used as a warm safari hero image."
+    />
+
+    <section class="trust-strip" aria-label="What travelers can expect">
+      <div class="wrapper trust-items">
+        <span>Kenya-focused</span>
+        <span>Locally grounded</span>
+        <span>Personally planned</span>
+        <span>Supported from start to finish</span>
+      </div>
+    </section>
+
+    <section class="section story-band">
+      <div class="wrapper split-layout">
+        <div>
+          <p class="eyebrow">Guided by home</p>
+          <h2>A safari should feel considered from the first idea.</h2>
+          <!-- TODO: review copy -->
+          <p>
+            A Kenya safari is more than a list of parks and lodges. It is the rhythm of
+            early mornings, open roads, quiet evenings, and the people who make each place
+            feel known. We bring those parts together into a journey designed around you.
+          </p>
+        </div>
+      <Image
+        src={storyImage}
+        alt="Two giraffes standing in green Kenya bush, used as a placeholder destination image."
+        widths={[240, 320, 480]}
+        sizes="(max-width: 760px) 25vw, 50vw"
+        quality={40}
+        loading="lazy"
+        decoding="async"
+      />
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrapper section-head">
+        <p class="eyebrow">Why us</p>
+        <h2>Planning rooted in Kenya, shaped for North American travelers.</h2>
+      </div>
+      <div class="wrapper value-grid">
+        {
+          whyUs.map((item) => (
+            <article class="value-card">
+              <!-- TODO: review copy -->
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section split-feature">
+      <div class="wrapper section-head">
+        <p class="eyebrow">Featured destinations</p>
+        <h2>Start with the landscape, then we will shape the route.</h2>
+      </div>
+      <div class="wrapper feature-grid">
+        {
+          destinations.slice(0, 3).map((destination) => (
+          <a class="photo-card linked-card" href={`/destinations#${destination.slug}`}>
+            <Image
+              src={destination.image}
+              alt={destination.imageAlt}
+              widths={[240, 320, 480]}
+              sizes="(max-width: 760px) 25vw, 33vw"
+              quality={40}
+              loading="lazy"
+              decoding="async"
+            />
+              <div>
+                <p class="card-kicker">{destination.region}</p>
+                <h3>{destination.name}</h3>
+                <span class="text-link">Explore destinations</span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrapper section-head">
+        <p class="eyebrow">How it works</p>
+        <h2>A clear journey from first idea to Kenya.</h2>
+      </div>
+      <ol class="wrapper process-steps">
+        {
+          processSteps.map((step) => (
+            <li class="process-step">
+              <!-- TODO: review copy -->
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <FinalCTA
+      eyebrow="Begin with a conversation"
+      title="Your Kenya journey begins with a conversation."
+      body="Share your dates, interests, and the kind of experience you imagine. We will help turn the first idea into a journey that feels entirely your own."
+    />
+</BaseLayout>

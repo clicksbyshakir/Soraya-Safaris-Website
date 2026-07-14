@@ -1,0 +1,133 @@
+---
+import type { BlogPost } from "../lib/blog";
+import { formatPostDate, postDate, postHeroImage, postPath, tagPath } from "../lib/blog";
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+const tags = post.data.tags ?? [];
+const heroImage = postHeroImage(post);
+const description = post.data.description;
+---
+
+<article class="blog-card">
+  <a class="blog-card__media" href={postPath(post)} aria-label={`Read ${post.data.title}`}>
+    <img
+      src={heroImage}
+      alt=""
+      width="1200"
+      height="800"
+      loading="lazy"
+      decoding="async"
+    />
+  </a>
+  <div class="blog-card__body">
+    <p class="blog-card__date">{formatPostDate(postDate(post))}</p>
+    <h2 class="blog-card__title">
+      <a href={postPath(post)}>{post.data.title}</a>
+    </h2>
+    {description && <p class="blog-card__description">{description}</p>}
+    {tags.length > 0 && (
+      <ul class="blog-card__tags" aria-label="Tags">
+        {tags.map((tag) => (
+          <li>
+            <a href={tagPath(tag)}>{tag}</a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</article>
+
+<style>
+  .blog-card {
+    min-width: 0;
+    display: grid;
+    overflow: hidden;
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-raised);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .blog-card__media {
+    display: block;
+    overflow: hidden;
+    background: var(--color-surface-warm);
+  }
+
+  .blog-card__media img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  .blog-card__body {
+    display: grid;
+    gap: var(--space-3);
+    padding: var(--space-5);
+  }
+
+  .blog-card__date,
+  .blog-card__description,
+  .blog-card__tags {
+    margin: 0;
+  }
+
+  .blog-card__date {
+    color: var(--color-clay);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+  }
+
+  .blog-card__title {
+    margin: 0;
+    color: var(--color-midnight);
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: var(--weight-semibold);
+    line-height: var(--line-heading);
+    overflow-wrap: anywhere;
+  }
+
+  .blog-card__title a {
+    text-decoration: none;
+  }
+
+  .blog-card__title a:hover {
+    color: var(--color-clay);
+  }
+
+  .blog-card__description {
+    color: var(--color-ink-muted);
+  }
+
+  .blog-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    padding: 0;
+    list-style: none;
+  }
+
+  .blog-card__tags a {
+    min-height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-pill);
+    padding-inline: var(--space-3);
+    color: var(--color-acacia);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-bold);
+    text-decoration: none;
+  }
+
+  .blog-card__tags a:hover {
+    border-color: var(--color-gold);
+    color: var(--color-midnight);
+  }
+</style>

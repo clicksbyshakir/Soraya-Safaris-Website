@@ -1,0 +1,40 @@
+---
+interface Props {
+  imageSrc: string;
+  imageAlt: string;
+  title: string;
+  text: string;
+  href: string;
+  linkText?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+}
+
+const {
+  imageSrc,
+  imageAlt,
+  title,
+  text,
+  href,
+  linkText = "Learn more",
+  imageWidth = 1200,
+  imageHeight = 900
+} = Astro.props;
+---
+
+<article class="card">
+  <img
+    class="card__image"
+    src={imageSrc}
+    alt={imageAlt}
+    width={imageWidth}
+    height={imageHeight}
+    loading="lazy"
+    decoding="async"
+  />
+  <div class="card__body">
+    <h3 class="card__title">{title}</h3>
+    <p class="card__text">{text}</p>
+    <a class="text-link" href={href}>{linkText}</a>
+  </div>
+</article>

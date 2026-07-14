@@ -1,0 +1,226 @@
+---
+import "../styles/global.css";
+import {
+  absoluteUrl,
+  breadcrumbJsonLd,
+  type BreadcrumbItem,
+  DEFAULT_OG_IMAGE,
+  type JsonLd,
+  serializeJsonLd,
+  SITE_DESCRIPTION,
+  SITE_NAME
+} from "../lib/site";
+
+interface Props {
+  title: string;
+  description?: string;
+  canonicalPath: string;
+  ogImage?: string;
+  ogType?: "website" | "article";
+  publishedTime?: string;
+  modifiedTime?: string;
+  breadcrumbs?: BreadcrumbItem[];
+  jsonLd?: JsonLd | JsonLd[];
+}
+
+const {
+  title,
+  description = SITE_DESCRIPTION,
+  canonicalPath,
+  ogImage = DEFAULT_OG_IMAGE,
+  ogType = "website",
+  publishedTime,
+  modifiedTime,
+  breadcrumbs = [],
+  jsonLd
+} = Astro.props;
+
+const canonicalUrl = absoluteUrl(canonicalPath);
+const ogImageUrl = absoluteUrl(ogImage);
+const analyticsToken = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYTICS_TOKEN;
+const jsonLdItems = [
+  breadcrumbJsonLd(breadcrumbs),
+  ...(Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [])
+].filter((item): item is JsonLd => Boolean(item));
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" type="application/rss+xml" title={`${SITE_NAME} Blog`} href={absoluteUrl("/rss.xml")} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/icon-192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0B1D34" />
+    <title>{title}</title>
+
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    {jsonLdItems.map((item) => <script is:inline type="application/ld+json" set:html={serializeJsonLd(item)} />)}
+    {
+      analyticsToken && (
+        <script
+          is:inline
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={JSON.stringify({ token: analyticsToken })}
+        ></script>
+      )
+    }
+
+    <style is:global>
+      .site-main {
+        padding-top: var(--header-height);
+      }
+
+      .container {
+        width: min(1120px, calc(100% - 40px));
+        margin-inline: auto;
+      }
+
+      .container--narrow {
+        width: min(72ch, calc(100% - 40px));
+      }
+
+      .blog-index,
+      .tag-page,
+      .blog-card,
+      .blog-post {
+        --color-ivory: var(--paper);
+        --color-midnight: var(--ink);
+        --color-gold: var(--gold);
+        --color-sand: var(--paper-strong);
+        --color-acacia: var(--leaf);
+        --color-clay: var(--ochre);
+        --color-ink: var(--ink);
+        --color-ink-muted: var(--muted);
+        --color-surface-raised: var(--white);
+        --color-surface-warm: var(--paper-strong);
+        --color-border: var(--line);
+        --font-display: "EB Garamond", Georgia, "Times New Roman", serif;
+        --text-xs: 0.75rem;
+        --text-sm: 0.875rem;
+        --text-md: 1.125rem;
+        --text-xl: 1.5rem;
+        --text-2xl: 2rem;
+        --text-3xl: 2.5rem;
+        --text-4xl: 3.25rem;
+        --text-5xl: clamp(2.5rem, 2rem + 2vw, 4.75rem);
+        --weight-semibold: 700;
+        --weight-bold: 800;
+        --line-heading: 1.08;
+        --border-width: 1px;
+        --radius-xs: 4px;
+        --radius-md: var(--radius);
+        --radius-pill: 999px;
+        --shadow-sm: 0 12px 34px rgba(11, 29, 52, 0.1);
+        --tap-target: 44px;
+        --space-0: 0;
+        --space-1: 0.25rem;
+        --space-2: 0.5rem;
+        --space-3: 0.75rem;
+        --space-4: 1rem;
+        --space-5: 1.25rem;
+        --space-6: 1.5rem;
+        --space-8: 2rem;
+        --space-10: 2.5rem;
+        --space-12: 3rem;
+        --space-16: 4rem;
+        --space-20: 5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" data-header>
+      <nav class="nav wrapper" aria-label="Primary navigation">
+        <a class="brand" href="/" aria-label={`${SITE_NAME} home`}>
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>{SITE_NAME}</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false">
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+          <span class="sr-only">Open navigation</span>
+        </button>
+        <div class="nav-links" id="primary-navigation" data-nav-links>
+          <a href="/">Home</a>
+          <a href="/about">About Us</a>
+          <a href="/destinations">Destinations</a>
+          <a href="/blog" aria-current="page">Blog</a>
+          <a href="/contact" class="nav-cta">Contact</a>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="site-main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrapper footer-layout">
+        <div>
+          <a class="brand footer-brand" href="/" aria-label={`${SITE_NAME} home`}>
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span>{SITE_NAME}</span>
+          </a>
+          <p>Tailor-made Kenya safaris, thoughtfully planned by people who call Kenya home.</p>
+          <p class="footer-locations">Nairobi - Boston - Ottawa</p>
+        </div>
+        <div class="footer-links" aria-label="Footer links">
+          <a href="/about">About Us</a>
+          <a href="/destinations">Destinations</a>
+          <a href="/blog">Blog</a>
+          <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-note">
+          Contact details, social links, legal entity details, booking terms, and payment terms are still to be confirmed before launch.
+        </p>
+      </div>
+    </footer>
+    <script>
+      const header = document.querySelector("[data-header]");
+      const toggle = document.querySelector(".nav-toggle");
+      const links = document.querySelector("[data-nav-links]");
+
+      function setHeaderState() {
+        header?.classList.toggle("is-scrolled", window.scrollY > 12);
+      }
+
+      setHeaderState();
+      window.addEventListener("scroll", setHeaderState, { passive: true });
+
+      toggle?.addEventListener("click", () => {
+        const isOpen = links?.classList.toggle("is-open");
+        document.body.classList.toggle("nav-open", Boolean(isOpen));
+        toggle.setAttribute("aria-expanded", String(Boolean(isOpen)));
+      });
+
+      links?.addEventListener("click", (event) => {
+        if (event.target instanceof HTMLAnchorElement) {
+          links.classList.remove("is-open");
+          document.body.classList.remove("nav-open");
+          toggle?.setAttribute("aria-expanded", "false");
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  text?: string;
+  align?: "start" | "center";
+}
+
+const { eyebrow, title, text, align = "start" } = Astro.props;
+const classes = ["section-heading", align === "center" && "section-heading--center"].filter(Boolean).join(" ");
+---
+
+<div class={classes}>
+  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+  <h2 class="section-heading__title">{title}</h2>
+  {text && <p class="section-heading__text">{text}</p>}
+</div>

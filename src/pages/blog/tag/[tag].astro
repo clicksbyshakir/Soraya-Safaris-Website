@@ -1,0 +1,134 @@
+---
+import BlogCard from "../../../components/BlogCard.astro";
+import BlogLayout from "../../../layouts/BlogLayout.astro";
+import {
+  getPublishedPosts,
+  getTags,
+  postsForTag,
+  tagPath
+} from "../../../lib/blog";
+import { DEFAULT_OG_IMAGE, pageTitle } from "../../../lib/site";
+import type { BlogPost } from "../../../lib/blog";
+
+type Props = {
+  label: string;
+  posts: BlogPost[];
+};
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts();
+  const tags = getTags(posts);
+
+  return tags.map((tag) => ({
+    params: { tag: tag.slug },
+    props: {
+      label: tag.label,
+      posts: postsForTag(posts, tag.slug)
+    }
+  }));
+}
+
+const { label, posts } = Astro.props;
+---
+
+<BlogLayout
+  title={pageTitle(`${label} Safari Stories`)}
+  description={`Kenya safari stories and planning notes tagged ${label}.`}
+  canonicalPath={tagPath(label)}
+  ogImage={DEFAULT_OG_IMAGE}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: label, path: tagPath(label) }
+  ]}
+>
+  <section class="tag-page">
+    <div class="container tag-page__hero">
+      <a class="tag-page__back" href="/blog">Back to blog</a>
+      <p class="tag-page__eyebrow">Topic</p>
+      <h1>{label}</h1>
+      <p>{posts.length} {posts.length === 1 ? "story" : "stories"} for this topic.</p>
+    </div>
+
+    <div class="container tag-page__content">
+      <div class="tag-page__grid" aria-label={`${label} blog posts`}>
+        {posts.map((post) => <BlogCard post={post} />)}
+      </div>
+    </div>
+  </section>
+</BlogLayout>
+
+<style>
+  .tag-page {
+    padding-block: var(--space-16);
+  }
+
+  .tag-page__hero {
+    max-width: 52rem;
+    display: grid;
+    gap: var(--space-4);
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .tag-page__back {
+    width: fit-content;
+    margin-inline: auto;
+    color: var(--color-clay);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-bold);
+    text-decoration: none;
+  }
+
+  .tag-page__back:hover {
+    color: var(--color-midnight);
+  }
+
+  .tag-page__eyebrow,
+  .tag-page__hero h1,
+  .tag-page__hero p {
+    margin: 0;
+  }
+
+  .tag-page__eyebrow {
+    color: var(--color-clay);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+  }
+
+  .tag-page__hero h1 {
+    color: var(--color-midnight);
+    font-family: var(--font-display);
+    font-size: var(--text-5xl);
+    font-weight: var(--weight-semibold);
+    line-height: var(--line-heading);
+    overflow-wrap: anywhere;
+  }
+
+  .tag-page__hero p {
+    color: var(--color-ink-muted);
+    font-size: var(--text-md);
+  }
+
+  .tag-page__content {
+    padding-block-start: var(--space-12);
+  }
+
+  .tag-page__grid {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 44rem) {
+    .tag-page__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 68rem) {
+    .tag-page__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>

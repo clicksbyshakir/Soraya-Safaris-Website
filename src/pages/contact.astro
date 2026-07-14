@@ -1,0 +1,158 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+import { pageTitle } from "../lib/site";
+
+const inquiryEndpoint = import.meta.env.PUBLIC_INQUIRY_ENDPOINT ?? "/api/inquiry";
+const description =
+  "Start a Book a Safari inquiry with {{COMPANY_NAME}} and share dates, group size, and the Kenya journey you imagine.";
+---
+
+<BaseLayout
+  title={pageTitle("Contact")}
+  description={description}
+  canonicalPath="/contact"
+  current="contact"
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Contact", path: "/contact" }
+  ]}
+>
+  <section class="page-stub contact-page">
+    <div class="container container--narrow page-stub__inner">
+      <p class="eyebrow">Book a Safari</p>
+      <h1 class="page-stub__title">Your Kenya journey begins with a conversation.</h1>
+      <p class="page-stub__text">
+        Share your dates, interests, and the kind of experience you imagine. The first step is a human conversation, not a checkout.
+      </p>
+
+      <form class="inquiry-form" action={inquiryEndpoint} method="post">
+        <input type="hidden" name="formStartedAt" value="" />
+        <div class="trap" aria-hidden="true">
+          <label for="companyWebsite">Company website</label>
+          <input id="companyWebsite" name="companyWebsite" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <label>
+          <span>Full name</span>
+          <input name="fullName" type="text" autocomplete="name" required maxlength="80" />
+        </label>
+        <label>
+          <span>Email</span>
+          <input name="email" type="email" autocomplete="email" required maxlength="254" />
+        </label>
+        <label>
+          <span>Approximate travel dates</span>
+          <input name="travelDates" type="text" autocomplete="off" maxlength="120" />
+        </label>
+        <label>
+          <span>Group size</span>
+          <select name="groupSize">
+            <option value="">Select one</option>
+            <option value="1-2">1-2</option>
+            <option value="3-5">3-5</option>
+            <option value="6-10">6-10</option>
+            <option value="10+">10+</option>
+          </select>
+        </label>
+        <label class="full">
+          <span>Tell us about your dream trip</span>
+          <textarea
+            name="message"
+            rows="6"
+            required
+            maxlength="2000"
+            placeholder="Parks, wildlife, travel pace, special occasion, children, photography, or anything you already know."
+          ></textarea>
+        </label>
+        <label class="full">
+          <span>How did you hear about us?</span>
+          <select name="heardAbout">
+            <option value="">Select one</option>
+            <option value="Search">Search</option>
+            <option value="Friend or family">Friend or family</option>
+            <option value="Social media">Social media</option>
+            <option value="Travel advisor">Travel advisor</option>
+            <option value="Returning guest">Returning guest</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+
+        <Button type="submit" class="full">Send inquiry</Button>
+        <p class="form-note full">We only use these details to reply to your safari inquiry.</p>
+      </form>
+    </div>
+  </section>
+
+  <script is:inline>
+    // Stamped on load, not at build time: the Worker compares this against submit
+    // time to reject bot-speed submissions, and a static page would otherwise ship
+    // a frozen build timestamp that always looks old enough to pass.
+    document.querySelector('.inquiry-form input[name="formStartedAt"]').value = String(Date.now());
+  </script>
+
+  <style>
+    .contact-page {
+      padding-block: var(--space-16);
+    }
+
+    .inquiry-form {
+      display: grid;
+      gap: var(--space-4);
+      border: var(--border-width) solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-surface-raised);
+      padding: var(--space-5);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .inquiry-form label {
+      display: grid;
+      gap: var(--space-2);
+      color: var(--color-midnight);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-bold);
+    }
+
+    .inquiry-form input,
+    .inquiry-form select,
+    .inquiry-form textarea {
+      width: 100%;
+      min-height: var(--tap-target);
+      border: var(--border-width) solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-surface-raised);
+      color: var(--color-midnight);
+      padding: var(--space-3);
+      font: inherit;
+    }
+
+    .inquiry-form textarea {
+      resize: vertical;
+    }
+
+    .trap {
+      position: absolute;
+      left: -10000px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .form-note {
+      margin: 0;
+      color: var(--color-ink-muted);
+      font-size: var(--text-sm);
+    }
+
+    @media (min-width: 44rem) {
+      .inquiry-form {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .full {
+        grid-column: 1 / -1;
+      }
+    }
+  </style>
+</BaseLayout>
