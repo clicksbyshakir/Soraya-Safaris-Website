@@ -20,6 +20,12 @@ Two are weaker than the rest and are worth replacing with owned photography when
 
 - **Lake Nakuru** and **Diani Beach** are consistent with their locations and came from searches for them, but neither carries a geotag. Flamingos also gather at Bogoria and Elementaita, and a white-sand beach is hard to distinguish from elsewhere on the Swahili coast.
 
+## About page hero
+
+| File | Subject | Photographer | Source | Note |
+| --- | --- | --- | --- | --- |
+| `src/assets/pleiades.jpg` | The Pleiades (M45) | Anders Drange | [Unsplash](https://unsplash.com/photos/gEerTElo2mc) | The photographer's own caption identifies it as "the Pleiades, also known as M45". Unsplash License. |
+
 ## Wildlife photography
 
 The images in `Photos/` and the wildlife shots in `src/assets/` are the owner's own work and carry a visible signature watermark.

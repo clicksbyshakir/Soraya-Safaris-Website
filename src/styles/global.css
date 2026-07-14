@@ -870,6 +870,14 @@ button {
   padding: var(--space-5);
 }
 
+/* Founder cards carry no portrait yet, so they need their own padding: the
+   rule above hangs it on a child div these cards do not have. */
+.founder-card--name {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-6);
+}
+
 .linked-card:hover {
   box-shadow: var(--shadow-md);
 }
