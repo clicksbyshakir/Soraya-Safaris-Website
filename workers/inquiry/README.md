@@ -113,6 +113,7 @@ wrangler deploy
 ## Behavior
 
 - Telegram, internal email, and customer auto-reply are attempted independently.
-- The customer receives success if Telegram or the internal email succeeds.
+- Telegram is optional: when `TELEGRAM_BOT_TOKEN`/`TELEGRAM_CHAT_ID` are unset it is skipped quietly, and the internal email to `INQUIRY_TO_EMAIL` (for example `admin@sorayasafaris.com`) carries the inquiry on its own. This means `RESEND_API_KEY` must be set for delivery to work in an email-only setup.
+- The customer receives success only if Telegram or the internal email actually delivered (a skipped channel does not count).
 - Failures are logged without exposing secrets or raw provider responses to the visitor.
 - The Google Sheets append step is intentionally left as a documented TODO hook in `src/index.js`.

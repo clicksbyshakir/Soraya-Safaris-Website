@@ -6,6 +6,9 @@ import { pageTitle } from "../lib/site";
 const inquiryEndpoint = import.meta.env.PUBLIC_INQUIRY_ENDPOINT ?? "/api/inquiry";
 const description =
   "Start a Book a Safari inquiry with Soraya Safaris and share dates, group size, and the Kenya journey you imagine.";
+
+// 1, 2, 3 … 30, then "30+" for larger groups.
+const groupSizeOptions = [...Array.from({ length: 30 }, (_, index) => String(index + 1)), "30+"];
 ---
 
 <BaseLayout
@@ -41,18 +44,25 @@ const description =
           <span>Email</span>
           <input name="email" type="email" autocomplete="email" required maxlength="254" />
         </label>
+        <input type="hidden" name="travelDates" value="" />
+        <fieldset class="date-range full">
+          <legend>Approximate travel dates</legend>
+          <div class="date-range__fields">
+            <label>
+              <span>Arrival</span>
+              <input name="travelDateStart" type="date" autocomplete="off" />
+            </label>
+            <label>
+              <span>Departure</span>
+              <input name="travelDateEnd" type="date" autocomplete="off" />
+            </label>
+          </div>
+        </fieldset>
         <label>
-          <span>Approximate travel dates</span>
-          <input name="travelDates" type="text" autocomplete="off" maxlength="120" />
-        </label>
-        <label>
-          <span>Group size</span>
+          <span>Number of people</span>
           <select name="groupSize">
             <option value="">Select one</option>
-            <option value="1-2">1-2</option>
-            <option value="3-5">3-5</option>
-            <option value="6-10">6-10</option>
-            <option value="10+">10+</option>
+            {groupSizeOptions.map((size) => <option value={size}>{size}</option>)}
           </select>
         </label>
         <label class="full">
@@ -80,15 +90,120 @@ const description =
 
         <Button type="submit" class="full">Send inquiry</Button>
         <p class="form-note full">We only use these details to reply to your safari inquiry.</p>
+        <p class="form-status full" role="status" aria-live="polite" hidden></p>
       </form>
     </div>
   </section>
 
   <script is:inline>
-    // Stamped on load, not at build time: the Worker compares this against submit
-    // time to reject bot-speed submissions, and a static page would otherwise ship
-    // a frozen build timestamp that always looks old enough to pass.
-    document.querySelector('.inquiry-form input[name="formStartedAt"]').value = String(Date.now());
+    (function () {
+      var form = document.querySelector(".inquiry-form");
+      if (!form) return;
+
+      // Stamped on load, not at build time: the Worker compares this against submit
+      // time to reject bot-speed submissions, and a static page would otherwise ship
+      // a frozen build timestamp that always looks old enough to pass.
+      form.querySelector('input[name="formStartedAt"]').value = String(Date.now());
+
+      var startInput = form.querySelector('input[name="travelDateStart"]');
+      var endInput = form.querySelector('input[name="travelDateEnd"]');
+      var travelDates = form.querySelector('input[name="travelDates"]');
+      var status = form.querySelector(".form-status");
+      var submitButton = form.querySelector('button[type="submit"], [type="submit"]');
+
+      // Do not allow past arrival dates, and keep departure on or after arrival.
+      var today = new Date().toISOString().slice(0, 10);
+      if (startInput) startInput.min = today;
+      if (endInput) endInput.min = today;
+      if (startInput && endInput) {
+        startInput.addEventListener("change", function () {
+          endInput.min = startInput.value || today;
+          if (endInput.value && endInput.value < endInput.min) endInput.value = endInput.min;
+        });
+      }
+
+      function formatDate(value) {
+        if (!value) return "";
+        var parts = value.split("-");
+        var date = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+        if (isNaN(date.getTime())) return value;
+        return date.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+      }
+
+      function buildTravelDates() {
+        var start = formatDate(startInput && startInput.value);
+        var end = formatDate(endInput && endInput.value);
+        if (start && end) return start + " to " + end;
+        if (start) return "From " + start;
+        if (end) return "Until " + end;
+        return "";
+      }
+
+      function showStatus(message, isError) {
+        if (!status) return;
+        status.textContent = message;
+        status.hidden = false;
+        status.classList.toggle("form-status--error", Boolean(isError));
+        status.classList.toggle("form-status--success", !isError);
+      }
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        if (travelDates) travelDates.value = buildTravelDates();
+
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.setAttribute("aria-busy", "true");
+        }
+        showStatus("Sending your inquiry…", false);
+
+        fetch(form.action, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: new FormData(form)
+        })
+          .then(function (response) {
+            return response
+              .json()
+              .catch(function () {
+                return {};
+              })
+              .then(function (data) {
+                return { ok: response.ok, data: data };
+              });
+          })
+          .then(function (result) {
+            if (result.ok && result.data && result.data.ok) {
+              form.reset();
+              showStatus(
+                result.data.message ||
+                  "Asante! We've got your inquiry and a real person will reply within a few hours.",
+                false
+              );
+            } else {
+              showStatus(
+                (result.data && result.data.message) ||
+                  "We could not send your inquiry right now. Please try again, or email us at admin@sorayasafaris.com.",
+                true
+              );
+            }
+          })
+          .catch(function () {
+            showStatus(
+              "We could not reach the server. Please try again, or email us at admin@sorayasafaris.com.",
+              true
+            );
+          })
+          .finally(function () {
+            if (submitButton) {
+              submitButton.disabled = false;
+              submitButton.removeAttribute("aria-busy");
+            }
+            // Fresh timestamp so a second submission is not rejected as too-fast.
+            form.querySelector('input[name="formStartedAt"]').value = String(Date.now());
+          });
+      });
+    })();
   </script>
 
   <style>
@@ -129,6 +244,52 @@ const description =
 
     .inquiry-form textarea {
       resize: vertical;
+    }
+
+    .date-range {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      display: grid;
+      gap: var(--space-2);
+    }
+
+    .date-range legend {
+      padding: 0;
+      color: var(--color-midnight);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-bold);
+    }
+
+    .date-range__fields {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    @media (min-width: 30rem) {
+      .date-range__fields {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .form-status {
+      margin: 0;
+      border-radius: var(--radius-md);
+      padding: var(--space-3);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-bold);
+    }
+
+    .form-status--success {
+      border: var(--border-width) solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-midnight);
+    }
+
+    .form-status--error {
+      border: var(--border-width) solid #b3261e;
+      background: #fdecea;
+      color: #8c1d18;
     }
 
     .trap {

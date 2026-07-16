@@ -1,7 +1,11 @@
 const DEFAULT_SUCCESS_MESSAGE =
   "Asante! We've got your inquiry and a real person will reply within a few hours.";
 
-const GROUP_SIZE_OPTIONS = new Set(["1-2", "3-5", "6-10", "10+"]);
+// "1" through "30" individually, then "30+" for larger groups.
+const GROUP_SIZE_OPTIONS = new Set([
+  ...Array.from({ length: 30 }, (_, index) => String(index + 1)),
+  "30+",
+]);
 const HEARD_ABOUT_OPTIONS = new Set([
   "Search",
   "Friend or family",
@@ -90,9 +94,13 @@ export default {
       // TODO: Append inquiry to Google Sheets after an approved auth model is chosen.
       // await appendInquiryToGoogleSheets(inquiry, env);
 
+      // A skipped channel (for example Telegram when it is not configured) did not
+      // actually deliver the inquiry, so it must not count as an internal success.
       const internalSucceeded = results.some(
         (result) =>
-          (result.name === "telegram" || result.name === "internalEmail") && result.ok,
+          (result.name === "telegram" || result.name === "internalEmail") &&
+          result.ok &&
+          !result.skipped,
       );
 
       const failedResults = results.filter((result) => !result.ok);
@@ -294,8 +302,11 @@ async function sendTelegram(inquiry, env) {
     return { dryRun: true };
   }
 
-  requireEnv(env, "TELEGRAM_BOT_TOKEN");
-  requireEnv(env, "TELEGRAM_CHAT_ID");
+  // Telegram is optional. When it is not configured, skip it quietly so email
+  // alone can carry the inquiry rather than logging a spurious failure.
+  if (!env.TELEGRAM_BOT_TOKEN || !env.TELEGRAM_CHAT_ID) {
+    return { skipped: true };
+  }
 
   const telegramMessage = [
     "<b>New safari inquiry</b>",
@@ -411,8 +422,8 @@ function autoReplyHtml(inquiry) {
 
 async function settle(name, task) {
   try {
-    await task();
-    return { name, ok: true };
+    const result = await task();
+    return { name, ok: true, skipped: Boolean(result && result.skipped) };
   } catch (error) {
     return { name, ok: false, error: error.message };
   }
