@@ -192,8 +192,7 @@ button {
 }
 
 .site-header {
-  position: sticky;
-  inset-block-start: var(--space-0);
+  position: relative;
   z-index: 100;
   border-block-end: var(--border-width) solid var(--color-border);
   background: color-mix(in srgb, var(--color-ivory) 92%, transparent);
@@ -540,6 +539,14 @@ button {
   margin: var(--space-0);
   color: color-mix(in srgb, var(--color-ivory) 84%, transparent);
   font-size: var(--text-md);
+}
+
+.hero__note {
+  max-width: 40rem;
+  margin: var(--space-0);
+  color: color-mix(in srgb, var(--color-ivory) 72%, transparent);
+  font-size: var(--text-sm);
+  line-height: var(--line-body);
 }
 
 .hero__cta {

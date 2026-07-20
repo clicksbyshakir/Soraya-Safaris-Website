@@ -6,12 +6,13 @@ type Props = {
   eyebrow?: string;
   title: string;
   body: string;
+  note?: string;
   image: ImageMetadata;
   alt: string;
   compact?: boolean;
 };
 
-const { eyebrow, title, body, image, alt, compact = false } = Astro.props;
+const { eyebrow, title, body, note, image, alt, compact = false } = Astro.props;
 ---
 
 <section class:list={["hero", compact && "hero--compact"]} aria-label={eyebrow ?? title}>
@@ -31,6 +32,7 @@ const { eyebrow, title, body, image, alt, compact = false } = Astro.props;
       {eyebrow && <p class="eyebrow">{eyebrow}</p>}
       <h1 class="hero__title">{title}</h1>
       <p class="hero__subhead">{body}</p>
+      {note && <p class="hero__note">{note}</p>}
     </div>
   </div>
 </section>
