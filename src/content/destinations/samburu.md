@@ -4,6 +4,8 @@ region: Northern Kenya
 order: 5
 heroImage: ../../assets/destinations/samburu.jpg
 heroImageAlt: Reticulated giraffe among doum palms beside the Ewaso Ng'iro river in Samburu.
+pageHeroImage: ../../assets/destinations/samburu-hero.jpg
+pageHeroImageAlt: A herd of elephants crossing dry grassland in northern Kenya.
 cardSummary: Hot, sculptural country north of Mount Kenya, with five species you will not find anywhere further south.
 bestSeason: June to October and December to March, when wildlife concentrates along the river.
 signatureExperiences:
@@ -11,6 +13,13 @@ signatureExperiences:
   - Riverside elephant herds
   - Samburu community visits
 suggestedPairing: Combines naturally with Laikipia, moving from hot northern country into cooler highlands.
+gallery:
+  - image: ../../assets/destinations/samburu-giraffe.jpg
+    alt: A reticulated giraffe browsing acacia leaves.
+  - image: ../../assets/destinations/samburu-river.jpg
+    alt: Elephants moving through riverine woodland.
+  - image: ../../assets/destinations/samburu-community.jpg
+    alt: Samburu community members walking together in traditional dress.
 ---
 
 ### Overview

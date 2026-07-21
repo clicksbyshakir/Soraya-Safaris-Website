@@ -4,6 +4,8 @@ region: Southern Kenya
 order: 2
 heroImage: ../../assets/destinations/amboseli.jpg
 heroImageAlt: Elephants crossing open dust plains in Amboseli with Kilimanjaro rising behind them.
+pageHeroImage: ../../assets/destinations/amboseli-hero.jpg
+pageHeroImageAlt: Zebra grazing on the Amboseli plains with Kilimanjaro behind them.
 cardSummary: Elephant herds on open plains, with Kilimanjaro filling the horizon behind them. Small, flat, and unlike anywhere else in Kenya.
 bestSeason: June to October and January to February for the clearest views of the mountain.
 signatureExperiences:
@@ -11,6 +13,13 @@ signatureExperiences:
   - Kilimanjaro photography
   - Swamp birding
 suggestedPairing: Works well before or after Tsavo, and combines easily with a Nairobi day at either end.
+gallery:
+  - image: ../../assets/destinations/amboseli-landscape.jpg
+    alt: Kilimanjaro's snow cap rising above the treeline on a clear morning.
+  - image: ../../assets/destinations/amboseli-wildlife.jpg
+    alt: A line of elephants crossing an Amboseli track.
+  - image: ../../assets/destinations/amboseli-birding.jpg
+    alt: Flamingos feeding in a shallow swamp.
 ---
 
 ### Overview

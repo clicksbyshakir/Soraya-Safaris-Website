@@ -4,6 +4,8 @@ region: Southeast Kenya
 order: 3
 heroImage: ../../assets/destinations/tsavo.jpg
 heroImageAlt: Red-dust elephants moving through open scrub in Tsavo.
+pageHeroImage: ../../assets/destinations/tsavo-hero.jpg
+pageHeroImageAlt: A lone tree standing over open Tsavo scrub at golden hour.
 cardSummary: More than 20,000 square kilometres of red-earth wilderness between Nairobi and the coast. Emptier and wilder, and the natural bridge on a safari-and-beach trip.
 bestSeason: June to October and January to February, when wildlife gathers near water.
 signatureExperiences:
@@ -11,6 +13,13 @@ signatureExperiences:
   - Mzima Springs
   - Volcanic landscapes and lava flows
 suggestedPairing: The natural stop between Nairobi and Diani Beach, and combines well with Amboseli.
+gallery:
+  - image: ../../assets/destinations/tsavo-wildlife.jpg
+    alt: A herd of elephants gathered at the water's edge.
+  - image: ../../assets/destinations/tsavo-water.jpg
+    alt: Zebra and elephants sharing a waterhole.
+  - image: ../../assets/destinations/tsavo-landscape.jpg
+    alt: Lions resting on a rock outcrop above the surrounding bush.
 ---
 
 ### Overview

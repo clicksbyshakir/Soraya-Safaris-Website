@@ -2,12 +2,8 @@
 name: Nairobi
 region: Gateway City
 order: 8
-# TODO: Nairobi has no hero image yet. When owned/licensed photography is added
-# to src/assets/destinations/ (and logged in CREDITS.md), set:
-#   heroImage: ../../assets/destinations/nairobi.jpg
-# Until then heroImage is intentionally omitted; the schema allows it, and the
-# page and card fall back to a neutral placeholder.
-heroImageAlt: Wildlife grazing in Nairobi National Park with the city skyline on the horizon.
+heroImage: ../../assets/destinations/nairobi-hero.jpg
+heroImageAlt: Three giraffes in Nairobi National Park with the city skyline behind them.
 cardSummary: A national park on the city's doorstep, and a full day worth planning rather than an airport transfer.
 bestSeason: Year-round; June and July are cooler and often overcast.
 signatureExperiences:
@@ -15,6 +11,13 @@ signatureExperiences:
   - Sheldrick Wildlife Trust
   - Giraffe Centre
 suggestedPairing: Opens or closes almost every itinerary, usually the day before flying to the Mara.
+gallery:
+  - image: ../../assets/destinations/nairobi-wildlife.jpg
+    alt: A herd of zebra on dry grassland inside the park.
+  - image: ../../assets/destinations/nairobi-sheldrick.jpg
+    alt: A hand feeding an orphaned elephant at close range.
+  - image: ../../assets/destinations/nairobi-city.jpg
+    alt: The Nairobi skyline under overcast sky.
 ---
 
 ### Overview

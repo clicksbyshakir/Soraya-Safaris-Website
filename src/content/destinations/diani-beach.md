@@ -4,6 +4,8 @@ region: Kenya Coast
 order: 7
 heroImage: ../../assets/destinations/diani-beach.jpg
 heroImageAlt: White sand and turquoise water inside the reef at Diani Beach.
+pageHeroImage: ../../assets/destinations/diani-beach-hero.jpg
+pageHeroImageAlt: Thatched beach bandas and loungers on white sand at Diani.
 cardSummary: White sand, a sheltering reef, and Swahili coast culture. The pause at the end of the journey.
 bestSeason: December to March for hot, calm, clear conditions; July to October is cooler and drier.
 signatureExperiences:
@@ -11,6 +13,13 @@ signatureExperiences:
   - Dhow sailing
   - Shimba Hills day trips
 suggestedPairing: The natural close to any safari, most often reached via Tsavo.
+gallery:
+  - image: ../../assets/destinations/diani-beach-reef.jpg
+    alt: Clear turquoise water inside the reef.
+  - image: ../../assets/destinations/diani-beach-dhow.jpg
+    alt: A small sailing dhow on the water off the Kenyan coast.
+  - image: ../../assets/destinations/diani-beach-sunset.jpg
+    alt: Sun setting behind palms on the shoreline.
 ---
 
 ### Overview

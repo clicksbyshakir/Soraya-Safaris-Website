@@ -21,9 +21,14 @@ const destinations = defineCollection({
       name: z.string(),
       region: z.string(),
       order: z.number(),
-      // Optional so Nairobi, which has no photograph yet, still validates.
+      // Card/grid image. Optional so a destination without its own photo still
+      // validates (it then falls back to pageHeroImage or a placeholder).
       heroImage: image().optional(),
       heroImageAlt: z.string(),
+      // Distinct, larger hero shown on the destination subpage. Falls back to
+      // heroImage when absent.
+      pageHeroImage: image().optional(),
+      pageHeroImageAlt: z.string().optional(),
       cardSummary: z.string(),
       bestSeason: z.string(),
       signatureExperiences: z.array(z.string()),

@@ -4,6 +4,8 @@ region: Rift Valley
 order: 4
 heroImage: ../../assets/destinations/lake-nakuru.jpg
 heroImageAlt: White rhino grazing beside the alkaline shallows of Lake Nakuru.
+pageHeroImage: ../../assets/destinations/lake-nakuru-hero.jpg
+pageHeroImageAlt: Aerial view of Lake Nakuru's shoreline and surrounding grassland.
 cardSummary: A compact, fenced Rift Valley park, and one of the more dependable places in Kenya to see both black and white rhino.
 bestSeason: Good year-round; drier months make the tracks easier.
 signatureExperiences:
@@ -11,6 +13,13 @@ signatureExperiences:
   - Rothschild's giraffe
   - Rift Valley viewpoints
 suggestedPairing: A natural link between the Maasai Mara and northern Kenya.
+gallery:
+  - image: ../../assets/destinations/lake-nakuru-rhino.jpg
+    alt: Two rhino grazing in Lake Nakuru National Park.
+  - image: ../../assets/destinations/lake-nakuru-flamingo.jpg
+    alt: Flamingos wading in the alkaline shallows.
+  - image: ../../assets/destinations/lake-nakuru-landscape.jpg
+    alt: The open water of the lake under a clear Rift Valley sky.
 ---
 
 ### Overview

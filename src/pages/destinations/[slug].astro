@@ -5,7 +5,8 @@ import DestinationGallery from "../../components/DestinationGallery.astro";
 import Hero from "../../components/Hero.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import {
-  destinationHeroImage,
+  destinationPageHeroAlt,
+  destinationPageHeroImage,
   destinationPath,
   getSortedDestinations,
   type Destination
@@ -28,9 +29,11 @@ export async function getStaticPaths() {
 const { destination } = Astro.props;
 const { Content } = await render(destination);
 const data = destination.data;
-const heroImage = destinationHeroImage(destination);
+const heroImage = destinationPageHeroImage(destination);
+const heroAlt = destinationPageHeroAlt(destination);
 const canonicalPath = destinationPath(destination);
-const ogImage = data.heroImage ? data.heroImage.src : DEFAULT_OG_IMAGE;
+const ogImageSource = data.pageHeroImage ?? data.heroImage;
+const ogImage = ogImageSource ? ogImageSource.src : DEFAULT_OG_IMAGE;
 
 const destinationJsonLd = {
   "@context": "https://schema.org",
@@ -38,7 +41,7 @@ const destinationJsonLd = {
   name: data.name,
   description: data.cardSummary,
   url: absoluteUrl(canonicalPath),
-  ...(data.heroImage ? { image: absoluteUrl(data.heroImage.src) } : {}),
+  ...(ogImageSource ? { image: absoluteUrl(ogImageSource.src) } : {}),
   address: {
     "@type": "PostalAddress",
     addressRegion: data.region,
@@ -66,7 +69,7 @@ const destinationJsonLd = {
     title={data.name}
     body={data.cardSummary}
     image={heroImage}
-    alt={data.heroImageAlt}
+    alt={heroAlt}
   />
 
   <section class="section">

@@ -4,6 +4,8 @@ region: Southwest Kenya
 order: 1
 heroImage: ../../assets/destinations/maasai-mara.jpg
 heroImageAlt: A hot-air balloon drifting over a herd of zebra on the open Maasai Mara plains at dawn.
+pageHeroImage: ../../assets/destinations/maasai-mara-hero.jpg
+pageHeroImageAlt: Balanites trees in silhouette against a Maasai Mara sunset.
 cardSummary: Kenya's most famous grassland, and its most reliable big-cat country. Busy during migration season, quietly excellent for much of the rest of the year.
 bestSeason: July to October for the migration; December to March for quieter dry-season travel.
 signatureExperiences:
@@ -11,6 +13,13 @@ signatureExperiences:
   - Big-cat tracking
   - Hot-air balloon flights
 suggestedPairing: Pairs naturally with Lake Nakuru on the way north, or with Diani Beach at the end of a trip.
+gallery:
+  - image: ../../assets/destinations/maasai-mara-wildlife.jpg
+    alt: A pride of lions resting on open Mara grassland.
+  - image: ../../assets/destinations/maasai-mara-migration.jpg
+    alt: A dense herd of wildebeest moving across the Mara plains.
+  - image: ../../assets/destinations/maasai-mara-activities.jpg
+    alt: Two hot-air balloons drifting low over the plains at dawn.
 ---
 
 ### Overview

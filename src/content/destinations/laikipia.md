@@ -4,6 +4,8 @@ region: Central Highlands
 order: 6
 heroImage: ../../assets/destinations/laikipia.jpg
 heroImageAlt: Open highland grassland in Laikipia with Mount Kenya visible in the distance.
+pageHeroImage: ../../assets/destinations/laikipia-hero.jpg
+pageHeroImageAlt: Highland woodland and water on the Laikipia plateau.
 cardSummary: A highland plateau of private conservancies where you can walk, ride, and track rhino on foot, and rarely see another vehicle.
 bestSeason: June to October and January to February, though the highland climate is mild year-round.
 signatureExperiences:
@@ -11,6 +13,13 @@ signatureExperiences:
   - Walking safaris
   - Night drives
 suggestedPairing: Best combined with Samburu, for the contrast between northern desert and cool highland.
+gallery:
+  - image: ../../assets/destinations/laikipia-rhino.jpg
+    alt: A group of rhino on open ground at Ol Pejeta Conservancy.
+  - image: ../../assets/destinations/laikipia-elephants.jpg
+    alt: An elephant and calf on the highland plateau.
+  - image: ../../assets/destinations/laikipia-lion.jpg
+    alt: A young lion moving through scrub.
 ---
 
 ### Overview
