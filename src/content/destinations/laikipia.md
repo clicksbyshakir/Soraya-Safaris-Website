@@ -13,13 +13,6 @@ signatureExperiences:
   - Walking safaris
   - Night drives
 suggestedPairing: Best combined with Samburu, for the contrast between northern desert and cool highland.
-gallery:
-  - image: ../../assets/destinations/laikipia-rhino.jpg
-    alt: A group of rhino on open ground at Ol Pejeta Conservancy.
-  - image: ../../assets/destinations/laikipia-elephants.jpg
-    alt: An elephant and calf on the highland plateau.
-  - image: ../../assets/destinations/laikipia-lion.jpg
-    alt: A young lion moving through scrub.
 ---
 
 ### Overview
@@ -34,13 +27,19 @@ High, open country that is cooler than the lowlands, with Mount Kenya visible to
 
 Black and white rhino in some of Kenya's most successful sanctuaries, alongside elephant, lion, and leopard. Laikipia also offers one of East Africa's better chances of seeing African wild dog. Grevy's zebra occur near the southern edge of their range, together with reticulated giraffe and other species associated with northern Kenya.
 
+![An elephant and calf on the highland plateau.](../../assets/destinations/laikipia-elephants.jpg)
+
 ### Activities
 
 Walking safaris, rhino tracking on foot with rangers, night drives, horseback riding, mountain biking, fly camping, and conservation-focused visits.
 
+![A group of rhino on open ground at Ol Pejeta Conservancy.](../../assets/destinations/laikipia-rhino.jpg)
+
 ### When to go, and why
 
 June to October and January to February are generally the driest months. Laikipia's higher elevation keeps the climate milder and greener than the northern lowlands, so the difference between seasons is less pronounced than it is elsewhere.
+
+![A young lion moving through scrub.](../../assets/destinations/laikipia-lion.jpg)
 
 ### Sample experiences
 

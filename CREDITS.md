@@ -22,7 +22,7 @@ Two are weaker than the rest and are worth replacing with owned photography when
 
 ### Destination subpage imagery
 
-Each destination subpage carries a distinct hero plus a small gallery. These 32 images are also from Unsplash under the [Unsplash License](https://unsplash.com/license) (free commercial use, no attribution required); photographers are credited here as a courtesy.
+Each destination subpage carries a distinct hero plus three images set through the page body. These 32 images are also from Unsplash under the [Unsplash License](https://unsplash.com/license) (free commercial use, no attribution required); photographers are credited here as a courtesy.
 
 | File | Destination | Photographer | Source |
 | --- | --- | --- | --- |

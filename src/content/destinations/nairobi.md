@@ -11,13 +11,6 @@ signatureExperiences:
   - Sheldrick Wildlife Trust
   - Giraffe Centre
 suggestedPairing: Opens or closes almost every itinerary, usually the day before flying to the Mara.
-gallery:
-  - image: ../../assets/destinations/nairobi-wildlife.jpg
-    alt: A herd of zebra on dry grassland inside the park.
-  - image: ../../assets/destinations/nairobi-sheldrick.jpg
-    alt: A hand feeding an orphaned elephant at close range.
-  - image: ../../assets/destinations/nairobi-city.jpg
-    alt: The Nairobi skyline under overcast sky.
 ---
 
 ### Overview
@@ -28,9 +21,13 @@ Many travellers treat Nairobi as an airport with a hotel attached. That can mean
 
 Open plains and acacia woodland on the city's southern edge, with the Nairobi skyline behind them.
 
+![The Nairobi skyline under overcast sky.](../../assets/destinations/nairobi-city.jpg)
+
 ### Wildlife
 
 Nairobi National Park holds black and white rhino, lion, giraffe, buffalo, zebra, and cheetah. There are no elephants in the park.
+
+![A herd of zebra on dry grassland inside the park.](../../assets/destinations/nairobi-wildlife.jpg)
 
 ### A full day in Nairobi
 
@@ -41,6 +38,8 @@ The order below follows how the day actually runs. The Sheldrick Wildlife Trust 
 3. **Midday — Giraffe Centre.** Rothschild's giraffe at eye level from the raised platform, a short drive from Sheldrick.
 4. **Afternoon — Mamba Village or Bomas of Kenya.** Either the crocodile park, or a programme of traditional dance and music representing communities from across Kenya.
 5. **Evening — dinner at Carnivore.**
+
+![A hand feeding an orphaned elephant at close range.](../../assets/destinations/nairobi-sheldrick.jpg)
 
 ### When to go, and why
 

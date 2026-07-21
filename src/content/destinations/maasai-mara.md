@@ -13,13 +13,6 @@ signatureExperiences:
   - Big-cat tracking
   - Hot-air balloon flights
 suggestedPairing: Pairs naturally with Lake Nakuru on the way north, or with Diani Beach at the end of a trip.
-gallery:
-  - image: ../../assets/destinations/maasai-mara-wildlife.jpg
-    alt: A pride of lions resting on open Mara grassland.
-  - image: ../../assets/destinations/maasai-mara-migration.jpg
-    alt: A dense herd of wildebeest moving across the Mara plains.
-  - image: ../../assets/destinations/maasai-mara-activities.jpg
-    alt: Two hot-air balloons drifting low over the plains at dawn.
 ---
 
 ### Overview
@@ -34,15 +27,21 @@ Open plains with long sightlines, riverine forest along the Mara and Talek river
 
 Resident lion prides, cheetah on the open plains, and leopard along the wooded riverbanks. Elephant, buffalo, Maasai giraffe, topi, eland, hippo, and crocodile are also regularly seen. Black rhino are present but rarely encountered. Wildebeest and zebra arrive in very large numbers when the migration moves through the ecosystem, usually between July and October. The timing changes from year to year, and river crossings can never be scheduled or guaranteed.
 
+![A pride of lions resting on open Mara grassland.](../../assets/destinations/maasai-mara-wildlife.jpg)
+
 ### Activities
 
 Morning and afternoon game drives, dawn hot-air balloon flights followed by a bush breakfast, guided walks, night drives, and visits to Maasai communities.
 
 Guided walks and night drives are generally offered in the private conservancies bordering the reserve rather than inside the national reserve itself, where night driving and off-road driving are restricted. This is one of the main reasons to consider staying in a conservancy: there are fewer vehicles around a sighting.
 
+![Two hot-air balloons drifting low over the plains at dawn.](../../assets/destinations/maasai-mara-activities.jpg)
+
 ### When to go, and why
 
 July to October is dry and usually overlaps with the migration, but it is also the busiest and most expensive period. December to March is drier again and generally quieter, with strong resident-cat viewing and good birding. April and May bring the long rains, greener landscapes, lower rates, heavier road conditions, and seasonal closures at some camps.
+
+![A dense herd of wildebeest moving across the Mara plains.](../../assets/destinations/maasai-mara-migration.jpg)
 
 ### Sample experiences
 

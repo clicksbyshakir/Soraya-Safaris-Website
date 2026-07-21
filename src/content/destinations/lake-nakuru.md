@@ -13,13 +13,6 @@ signatureExperiences:
   - Rothschild's giraffe
   - Rift Valley viewpoints
 suggestedPairing: A natural link between the Maasai Mara and northern Kenya.
-gallery:
-  - image: ../../assets/destinations/lake-nakuru-rhino.jpg
-    alt: Two rhino grazing in Lake Nakuru National Park.
-  - image: ../../assets/destinations/lake-nakuru-flamingo.jpg
-    alt: Flamingos wading in the alkaline shallows.
-  - image: ../../assets/destinations/lake-nakuru-landscape.jpg
-    alt: The open water of the lake under a clear Rift Valley sky.
 ---
 
 ### Overview
@@ -30,13 +23,19 @@ Lake Nakuru is compact, fenced, and set on the floor of the Rift Valley. It offe
 
 An alkaline lake ringed by fever-tree forest and euphorbia, with wooded escarpments behind it and viewpoints overlooking the basin.
 
+![The open water of the lake under a clear Rift Valley sky.](../../assets/destinations/lake-nakuru-landscape.jpg)
+
 ### Wildlife
 
 Black and white rhino, Rothschild's giraffe, buffalo, waterbuck, lion, and leopard, which are sometimes seen resting in the trees. Great white pelicans are also present in large numbers.
 
+![Two rhino grazing in Lake Nakuru National Park.](../../assets/destinations/lake-nakuru-rhino.jpg)
+
 ### On flamingos
 
 Nakuru's flamingo flocks once defined the lake's public image, but rising water levels altered its chemistry and many birds shifted to other Rift Valley lakes. Flamingos still return in varying numbers, but they should not be presented as a guaranteed reason to visit.
+
+![Flamingos wading in the alkaline shallows.](../../assets/destinations/lake-nakuru-flamingo.jpg)
 
 ### Activities
 

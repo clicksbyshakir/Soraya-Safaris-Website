@@ -32,8 +32,7 @@ const destinations = defineCollection({
       cardSummary: z.string(),
       bestSeason: z.string(),
       signatureExperiences: z.array(z.string()),
-      suggestedPairing: z.string(),
-      gallery: z.array(z.object({ image: image(), alt: z.string() })).default([])
+      suggestedPairing: z.string()
     })
 });
 

@@ -13,13 +13,6 @@ signatureExperiences:
   - Mzima Springs
   - Volcanic landscapes and lava flows
 suggestedPairing: The natural stop between Nairobi and Diani Beach, and combines well with Amboseli.
-gallery:
-  - image: ../../assets/destinations/tsavo-wildlife.jpg
-    alt: A herd of elephants gathered at the water's edge.
-  - image: ../../assets/destinations/tsavo-water.jpg
-    alt: Zebra and elephants sharing a waterhole.
-  - image: ../../assets/destinations/tsavo-landscape.jpg
-    alt: Lions resting on a rock outcrop above the surrounding bush.
 ---
 
 ### Overview
@@ -30,13 +23,19 @@ Tsavo is vast, and the two parks feel every bit of it. Together they cover rough
 
 Tsavo East is flatter, drier, and more open, with the Galana River, the long dark line of the Yatta Plateau, and Lugard Falls. Tsavo West is more varied and dramatic, with volcanic hills, the black Shetani lava flow, and Mzima Springs, where clear groundwater emerges beneath the surrounding lava landscape. A submerged viewing chamber allows visitors to look into the water at fish and, when they are nearby, hippo.
 
+![Lions resting on a rock outcrop above the surrounding bush.](../../assets/destinations/tsavo-landscape.jpg)
+
 ### Wildlife
 
 Elephant, often stained red by the local soil, are the defining sight. The parks also hold lion, including the maneless males associated with the region, as well as leopard, buffalo, lesser kudu, gerenuk, and fringe-eared oryx. The fenced Ngulia Rhino Sanctuary in Tsavo West protects black rhino. Birding is strong, particularly during migration periods.
 
+![A herd of elephants gathered at the water's edge.](../../assets/destinations/tsavo-wildlife.jpg)
+
 ### Activities
 
 Long game drives, the Mzima Springs walk, the Ngulia Rhino Sanctuary, the Shetani lava flow, and viewpoints across the open country.
+
+![Zebra and elephants sharing a waterhole.](../../assets/destinations/tsavo-water.jpg)
 
 ### When to go, and why
 

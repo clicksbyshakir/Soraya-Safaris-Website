@@ -13,13 +13,6 @@ signatureExperiences:
   - Riverside elephant herds
   - Samburu community visits
 suggestedPairing: Combines naturally with Laikipia, moving from hot northern country into cooler highlands.
-gallery:
-  - image: ../../assets/destinations/samburu-giraffe.jpg
-    alt: A reticulated giraffe browsing acacia leaves.
-  - image: ../../assets/destinations/samburu-river.jpg
-    alt: Elephants moving through riverine woodland.
-  - image: ../../assets/destinations/samburu-community.jpg
-    alt: Samburu community members walking together in traditional dress.
 ---
 
 ### Overview
@@ -30,13 +23,19 @@ North of Mount Kenya, the landscape changes quickly. The country becomes hotter,
 
 Dry riverine forest along a broad sandy river, red earth, thorn scrub, and hills along the horizon.
 
+![Elephants moving through riverine woodland.](../../assets/destinations/samburu-river.jpg)
+
 ### Wildlife
 
 Five species associated with Kenya's north are often grouped together here: Grevy's zebra, reticulated giraffe, Beisa oryx, gerenuk, and Somali ostrich. Elephant gather along the river, and the reserve also supports lion, cheetah, crocodile, and leopard. Samburu is particularly well known for leopard sightings.
 
+![A reticulated giraffe browsing acacia leaves.](../../assets/destinations/samburu-giraffe.jpg)
+
 ### Activities
 
 Game drives along the river and into the drier interior, birding, and visits to Samburu communities.
+
+![Samburu community members walking together in traditional dress.](../../assets/destinations/samburu-community.jpg)
 
 ### When to go, and why
 
