@@ -1,19 +1,22 @@
 ---
 import { Image } from "astro:assets";
-import type { DestinationCardData } from "../data/destinations";
+import { destinationHeroImage, destinationPath, type Destination } from "../lib/destinations";
 
 type Props = {
-  destination: DestinationCardData;
+  destination: Destination;
 };
 
 const { destination } = Astro.props;
+const { data } = destination;
+const heroImage = destinationHeroImage(destination);
+const href = destinationPath(destination);
 ---
 
-<article class="destination-card" id={destination.slug}>
+<article class="destination-card">
   <Image
     class="destination-card-image"
-    src={destination.image}
-    alt={destination.imageAlt}
+    src={heroImage}
+    alt={data.heroImageAlt}
     widths={[480, 640, 768, 960, 1280, 1600]}
     sizes="(max-width: 760px) 100vw, 50vw"
     quality={62}
@@ -21,27 +24,23 @@ const { destination } = Astro.props;
     decoding="async"
   />
   <div class="destination-card-body">
-    <p class="card-kicker">{destination.region}</p>
-    <h2>{destination.name}</h2>
-    <p>{destination.shortDescription}</p>
+    <p class="card-kicker">{data.region}</p>
+    <h2>{data.name}</h2>
+    <p>{data.cardSummary}</p>
     <dl class="card-meta">
       <div>
         <dt>Best season</dt>
-        <dd>{destination.bestSeason}</dd>
+        <dd>{data.bestSeason}</dd>
       </div>
       <div>
         <dt>Signature experiences</dt>
         <dd>
           <ul class="experience-list">
-            {destination.signatureExperiences.map((experience) => <li>{experience}</li>)}
+            {data.signatureExperiences.map((experience) => <li>{experience}</li>)}
           </ul>
         </dd>
       </div>
-      <div>
-        <dt>Pairs well with</dt>
-        <dd>{destination.suggestedPairing}</dd>
-      </div>
     </dl>
-    <a class="text-link" href="/contact">Let's build your itinerary</a>
+    <a class="button button--secondary" href={href}>More info</a>
   </div>
 </article>

@@ -14,4 +14,22 @@ const blog = defineCollection({
   })
 });
 
-export const collections = { blog };
+const destinations = defineCollection({
+  loader: glob({ base: "./src/content/destinations", pattern: "**/*.md" }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      region: z.string(),
+      order: z.number(),
+      // Optional so Nairobi, which has no photograph yet, still validates.
+      heroImage: image().optional(),
+      heroImageAlt: z.string(),
+      cardSummary: z.string(),
+      bestSeason: z.string(),
+      signatureExperiences: z.array(z.string()),
+      suggestedPairing: z.string(),
+      gallery: z.array(z.object({ image: image(), alt: z.string() })).default([])
+    })
+});
+
+export const collections = { blog, destinations };

@@ -8,6 +8,7 @@ import {
   tagPath
 } from "../lib/blog";
 import { absoluteUrl } from "../lib/site";
+import { destinationPath, getSortedDestinations } from "../lib/destinations";
 
 export const prerender = true;
 
@@ -33,8 +34,12 @@ export async function GET() {
   const posts = await getPublishedPosts();
   const tags = getTags(posts);
   const totalPages = getTotalPages(posts);
+  const destinations = await getSortedDestinations();
 
   const staticPaths = ["/", "/our-story/", "/destinations/", "/contact/", "/blog/"];
+  const destinationEntries = destinations.map((destination) =>
+    urlEntry(destinationPath(destination))
+  );
   const paginatedPaths = Array.from({ length: Math.max(0, totalPages - 1) }, (_, index) =>
     blogPagePath(index + 2)
   );
@@ -44,6 +49,7 @@ export async function GET() {
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   ${staticPaths.map((path) => urlEntry(path)).join("")}
+  ${destinationEntries.join("")}
   ${paginatedPaths.map((path) => urlEntry(path)).join("")}
   ${tagPaths.map((path) => urlEntry(path)).join("")}
   ${postEntries.join("")}

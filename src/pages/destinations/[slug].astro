@@ -1,0 +1,148 @@
+---
+import { render } from "astro:content";
+
+import DestinationGallery from "../../components/DestinationGallery.astro";
+import Hero from "../../components/Hero.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  destinationHeroImage,
+  destinationPath,
+  getSortedDestinations,
+  type Destination
+} from "../../lib/destinations";
+import { absoluteUrl, DEFAULT_OG_IMAGE, pageTitle } from "../../lib/site";
+
+type Props = {
+  destination: Destination;
+};
+
+export async function getStaticPaths() {
+  const destinations = await getSortedDestinations();
+
+  return destinations.map((destination) => ({
+    params: { slug: destination.id.replace(/\.mdx?$/, "") },
+    props: { destination }
+  }));
+}
+
+const { destination } = Astro.props;
+const { Content } = await render(destination);
+const data = destination.data;
+const heroImage = destinationHeroImage(destination);
+const canonicalPath = destinationPath(destination);
+const ogImage = data.heroImage ? data.heroImage.src : DEFAULT_OG_IMAGE;
+
+const destinationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristDestination",
+  name: data.name,
+  description: data.cardSummary,
+  url: absoluteUrl(canonicalPath),
+  ...(data.heroImage ? { image: absoluteUrl(data.heroImage.src) } : {}),
+  address: {
+    "@type": "PostalAddress",
+    addressRegion: data.region,
+    addressCountry: "KE"
+  }
+};
+---
+
+<BaseLayout
+  title={pageTitle(data.name)}
+  description={data.cardSummary}
+  canonicalPath={canonicalPath}
+  current="destinations"
+  image={ogImage}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Destinations", path: "/destinations" },
+    { name: data.name, path: canonicalPath }
+  ]}
+  jsonLd={destinationJsonLd}
+>
+  <Hero
+    compact
+    eyebrow={data.region}
+    title={data.name}
+    body={data.cardSummary}
+    image={heroImage}
+    alt={data.heroImageAlt}
+  />
+
+  <section class="section">
+    <div class="container container--narrow destination-prose">
+      <Content />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrapper">
+      <div class="map-note">
+        <dl class="card-meta">
+          <div>
+            <dt>Best season</dt>
+            <dd>{data.bestSeason}</dd>
+          </div>
+          <div>
+            <dt>Signature experiences</dt>
+            <dd>
+              <ul class="experience-list">
+                {data.signatureExperiences.map((experience) => <li>{experience}</li>)}
+              </ul>
+            </dd>
+          </div>
+          <div>
+            <dt>Pairs well with</dt>
+            <dd>{data.suggestedPairing}</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <DestinationGallery gallery={data.gallery} />
+
+  <section class="section final-cta">
+    <div class="container final-cta__inner">
+      <div>
+        <h2>Plan a trip to {data.name}</h2>
+      </div>
+      <a class="button button--primary" href="/contact">Plan a trip to {data.name}</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .destination-prose {
+    display: grid;
+    gap: var(--space-5);
+    color: var(--color-ink);
+    font-size: var(--text-md);
+    line-height: 1.72;
+  }
+
+  .destination-prose :global(> *) {
+    margin: var(--space-0);
+  }
+
+  .destination-prose :global(h3) {
+    margin-block-start: var(--space-4);
+    color: var(--color-midnight);
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-semibold);
+    line-height: var(--line-heading);
+  }
+
+  .destination-prose :global(ul),
+  .destination-prose :global(ol) {
+    display: grid;
+    gap: var(--space-2);
+    padding-inline-start: var(--space-6);
+  }
+
+  .destination-prose :global(strong) {
+    color: var(--color-midnight);
+    font-weight: var(--weight-bold);
+  }
+</style>
