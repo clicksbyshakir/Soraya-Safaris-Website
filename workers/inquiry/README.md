@@ -11,12 +11,12 @@ The static Astro page should set:
 
 Set secrets with `wrangler secret put NAME`. Do not commit secret values.
 
-- `ALLOWED_ORIGIN`: production site origin allowed by CORS, for example `https://sorayasafaris.com`.
+- `ALLOWED_ORIGIN`: production site origin allowed by CORS, for example `https://amaratrails.com`.
 - `TELEGRAM_BOT_TOKEN`: Telegram bot token.
 - `TELEGRAM_CHAT_ID`: Telegram group chat ID.
 - `RESEND_API_KEY`: Resend API key.
 - `INQUIRY_TO_EMAIL`: inbox that receives founder/internal notifications.
-- `RESEND_FROM_EMAIL`: verified Resend sender, for example `Soraya Safaris <admin@sorayasafaris.com>`.
+- `RESEND_FROM_EMAIL`: verified Resend sender, for example `Amara Trails <admin@amaratrails.com>`.
 - `TURNSTILE_SECRET_KEY`: Cloudflare Turnstile secret key.
 - `TURNSTILE_REQUIRED`: set to `true` to reject submissions without a Turnstile token. Leave `false` if no-JavaScript form posts must remain accepted.
 - `MIN_SUBMIT_SECONDS`: minimum seconds between form render and submission. Defaults to `3`.
@@ -113,7 +113,7 @@ wrangler deploy
 ## Behavior
 
 - Telegram, internal email, and customer auto-reply are attempted independently.
-- Telegram is optional: when `TELEGRAM_BOT_TOKEN`/`TELEGRAM_CHAT_ID` are unset it is skipped quietly, and the internal email to `INQUIRY_TO_EMAIL` (for example `admin@sorayasafaris.com`) carries the inquiry on its own. This means `RESEND_API_KEY` must be set for delivery to work in an email-only setup.
+- Telegram is optional: when `TELEGRAM_BOT_TOKEN`/`TELEGRAM_CHAT_ID` are unset it is skipped quietly, and the internal email to `INQUIRY_TO_EMAIL` (for example `admin@amaratrails.com`) carries the inquiry on its own. This means `RESEND_API_KEY` must be set for delivery to work in an email-only setup.
 - The customer receives success only if Telegram or the internal email actually delivered (a skipped channel does not count).
 - Failures are logged without exposing secrets or raw provider responses to the visitor.
 - The Google Sheets append step is intentionally left as a documented TODO hook in `src/index.js`.

@@ -32,7 +32,7 @@ The static site holds **no secrets**. It has three public build variables. They 
 
 | Variable | Value | What breaks without it |
 | --- | --- | --- |
-| `PUBLIC_SITE_URL` | `https://sorayasafaris.com` — apex, no trailing slash | Canonical URLs, RSS, sitemap, and social preview links fall back to the apex anyway, so nothing visibly breaks. Set it regardless. |
+| `PUBLIC_SITE_URL` | `https://amaratrails.com` — apex, no trailing slash | Canonical URLs, RSS, sitemap, and social preview links fall back to the apex anyway, so nothing visibly breaks. Set it regardless. |
 | `PUBLIC_INQUIRY_ENDPOINT` | The deployed Worker URL from Flow 2, e.g. `https://safari-inquiry.<subdomain>.workers.dev` | **The contact form silently 404s.** It falls back to `/api/inquiry`, which does not exist on a static site. |
 | `PUBLIC_CLOUDFLARE_WEB_ANALYTICS_TOKEN` | Token from Cloudflare → Web Analytics | No analytics. The beacon is only injected when this is present. |
 
@@ -50,9 +50,9 @@ These are plain config, already committed in `workers/inquiry/wrangler.toml` und
 
 | Variable | Current value | Notes |
 | --- | --- | --- |
-| `ALLOWED_ORIGIN` | `https://sorayasafaris.com` | Only this origin may post the form. Must match your live domain exactly, or every submission is rejected with a 403. |
-| `INQUIRY_TO_EMAIL` | `admin@sorayasafaris.com` | Where inquiries land. |
-| `RESEND_FROM_EMAIL` | `Soraya Safaris <admin@sorayasafaris.com>` | Must be on a domain you have verified in Resend (Flow 3). |
+| `ALLOWED_ORIGIN` | `https://amaratrails.com` | Only this origin may post the form. Must match your live domain exactly, or every submission is rejected with a 403. |
+| `INQUIRY_TO_EMAIL` | `admin@amaratrails.com` | Where inquiries land. |
+| `RESEND_FROM_EMAIL` | `Amara Trails <admin@amaratrails.com>` | Must be on a domain you have verified in Resend (Flow 3). |
 | `MIN_SUBMIT_SECONDS` | `3` | Rejects submissions faster than this, as a bot check. |
 | `RATE_LIMIT_WINDOW_SECONDS` | `900` | Rate-limit window. |
 | `RATE_LIMIT_MAX_REQUESTS` | `5` | Max submissions per IP per window. |
@@ -98,7 +98,7 @@ The form reports success if **either** the Telegram message **or** the internal 
 Used by the inquiry Worker for both the notification to you and the auto-reply to the guest.
 
 1. Create an account at [resend.com](https://resend.com).
-2. **Add and verify the domain `sorayasafaris.com`.** Resend gives you DNS records — an MX and TXT pair for the bounce/feedback subdomain, plus a DKIM `TXT`. Add them to your DNS zone.
+2. **Add and verify the domain `amaratrails.com`.** Resend gives you DNS records — an MX and TXT pair for the bounce/feedback subdomain, plus a DKIM `TXT`. Add them to your DNS zone.
 3. Create an API key → put it in the Worker as `RESEND_API_KEY` (Flow 2b).
 
 > **This is the step most likely to bite you.** If the domain is not verified, Resend rejects the `from` address and **every inquiry email fails**, even though the key is set correctly. Verify the domain before you test the form.
@@ -115,7 +115,7 @@ That means setting `TURNSTILE_SECRET_KEY` today achieves nothing: with no widget
 
 To actually turn it on, all three are needed:
 
-1. Cloudflare → Turnstile → create a widget for `sorayasafaris.com`. You get a **site key** (public) and a **secret key** (private).
+1. Cloudflare → Turnstile → create a widget for `amaratrails.com`. You get a **site key** (public) and a **secret key** (private).
 2. Add the widget to the form in `src/pages/contact.astro` (a `<div class="cf-turnstile" data-sitekey="...">` plus Cloudflare's script). **This is a code change that has not been made.**
 3. `npx wrangler secret put TURNSTILE_SECRET_KEY`, and set `TURNSTILE_REQUIRED = "true"` in `wrangler.toml`.
 
@@ -160,7 +160,7 @@ Plain vars (in that Worker's `wrangler.toml`, not secrets):
 | Variable | Value |
 | --- | --- |
 | `GITHUB_OWNER` | Your GitHub username or org. |
-| `GITHUB_REPO` | `Soraya-Safaris-Website` |
+| `GITHUB_REPO` | `Amara-Trails-Website` |
 | `GITHUB_WORKFLOW_ID` | `blog-pipeline.yml` |
 | `GITHUB_DEFAULT_BRANCH` | `main` |
 

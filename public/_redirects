@@ -1,6 +1,6 @@
 # Cloudflare Pages redirect rules.
 # The apex is canonical; www redirects to it.
-https://www.sorayasafaris.com/* https://sorayasafaris.com/:splat 301!
+https://www.amaratrails.com/* https://amaratrails.com/:splat 301!
 
 # /about was a duplicate of /our-story and has been removed. Keep both forms
 # redirecting, so any existing inbound link or index entry still lands.

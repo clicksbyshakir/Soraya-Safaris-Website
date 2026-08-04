@@ -5,13 +5,13 @@ export type BreadcrumbItem = {
   path: string;
 };
 
-export const SITE_NAME = "Soraya Safaris";
-export const SITE_URL = (import.meta.env.PUBLIC_SITE_URL || "https://sorayasafaris.com").replace(/\/+$/, "");
+export const SITE_NAME = "Amara Trails";
+export const SITE_URL = (import.meta.env.PUBLIC_SITE_URL || "https://amaratrails.com").replace(/\/+$/, "");
 export const SITE_DESCRIPTION =
   "Tailor-made Kenya safaris, thoughtfully planned by people who call Kenya home.";
 export const TITLE_SUFFIX = `${SITE_NAME} — Kenya Safaris`;
 export const DEFAULT_OG_IMAGE = "/og-default.png";
-export const DEFAULT_OG_ALT = "A simple star-guided Kenya safari placeholder mark.";
+export const DEFAULT_OG_ALT = "A simple Kenya safari placeholder mark.";
 
 export function pageTitle(page: string): string {
   return `${page} | ${TITLE_SUFFIX}`;
@@ -77,7 +77,7 @@ export function organizationJsonLd(): JsonLd {
         logo: absoluteUrl("/icon-512.png"),
         image: absoluteUrl(DEFAULT_OG_IMAGE),
         description: SITE_DESCRIPTION,
-        slogan: "Guided by home, under the stars.",
+        slogan: "Guided by home, across Kenya.",
         areaServed: [
           {
             "@type": "Country",

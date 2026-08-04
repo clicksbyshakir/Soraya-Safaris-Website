@@ -1,4 +1,4 @@
-# Soraya Safaris — Website Content & Build Brief
+# Amara Trails — Website Content & Build Brief
 
 **Version 1.0 — July 2026**  
 **Primary brand tagline:** *Guided by home, under the stars.*  
@@ -8,18 +8,18 @@
 
 ## 1. Project goal
 
-Build a warm, refined, high-trust website for Soraya Safaris: a Kenya-focused safari company that curates thoughtful journeys for travelers from the United States and Canada. The website must create emotion, demonstrate local credibility, make planning feel clear, and convert visitors into qualified safari inquiries.
+Build a warm, refined, high-trust website for Amara Trails: a Kenya-focused safari company that curates thoughtful journeys for travelers from the United States and Canada. The website must create emotion, demonstrate local credibility, make planning feel clear, and convert visitors into qualified safari inquiries.
 
 **Initial release:** an editorial, mobile-first marketing site with inquiry capture, not a full live-booking engine.
 
 **Primary conversion:** submit a detailed “Plan My Safari” inquiry.  
-**Secondary conversion:** request a call or contact Soraya by email/WhatsApp.  
+**Secondary conversion:** request a call or contact Amara Trails by email/WhatsApp.  
 **Initial language:** English.  
 **Primary destination:** Kenya.
 
 ## 2. Who we are
 
-Soraya Safaris is a Kenya-focused safari company founded by three friends with deep personal ties to the country. We curate private and small-group journeys to Kenya’s most memorable wildlife regions, combining local knowledge in Nairobi with personal support for travelers in the United States and Canada.
+Amara Trails is a Kenya-focused safari company founded by three friends with deep personal ties to the country. We curate private and small-group journeys to Kenya’s most memorable wildlife regions, combining local knowledge in Nairobi with personal support for travelers in the United States and Canada.
 
 - **Abdul — Nairobi, Kenya:** born in Kenya and based in Nairobi, providing an active local presence.
 - **Huzaifa — Boston, United States:** born in Kenya and now based in Boston, connecting Kenyan roots with the U.S. traveler perspective.
@@ -27,9 +27,9 @@ Soraya Safaris is a Kenya-focused safari company founded by three friends with d
 
 **Founder positioning:** *Three friends. Three cities. One home in Kenya.*
 
-## 3. Why Soraya exists
+## 3. Why Amara Trails exists
 
-Many travelers are overwhelmed by unfamiliar park names, seasonal differences, lodge choices, transfers, internal flights, and conflicting online advice. Soraya exists to make those decisions understandable and to turn them into a journey that feels coherent, personal, and rooted in Kenya.
+Many travelers are overwhelmed by unfamiliar park names, seasonal differences, lodge choices, transfers, internal flights, and conflicting online advice. Amara Trails exists to make those decisions understandable and to turn them into a journey that feels coherent, personal, and rooted in Kenya.
 
 We listen first, explain choices clearly, recommend what fits the guest rather than what is easiest to sell, and remain accessible throughout the journey.
 
@@ -37,7 +37,7 @@ We listen first, explain choices clearly, recommend what fits the guest rather t
 
 ### Approved master brand story
 
-Soraya Safaris takes its name from the Pleiades — the bright cluster of stars known across the Swahili coast and the Arab world as Soraya. For generations, those stars guided travelers home and told farmers when the season had turned. That is the spirit of what we do: Kenya is home to us, and we plan every journey the way you would plan one for family — with people who are actually from here, who know the land, and who stay with you from the first idea to the last night under the stars.
+Amara speaks to what lasts — the early mornings, the open landscapes, and the people who make a place feel known long after you have travelled home. That is the spirit of what we do: Kenya is home to us, and we plan every journey the way you would plan one for family — with people who are actually from here, who know the land, and who stay with you from the first idea to the last night under an open sky.
 
 ### Meaning pillars
 
@@ -67,7 +67,7 @@ To become a trusted Kenya-focused safari partner for North American travelers: k
 
 ### Positioning
 
-For travelers in the United States and Canada who want a meaningful Kenya safari without the confusion of planning it alone, Soraya Safaris provides tailored itinerary design and personal support from people with real ties to Kenya. Unlike generic global travel marketplaces, Soraya is Kenya-specific, locally grounded, and involved throughout the planning journey.
+For travelers in the United States and Canada who want a meaningful Kenya safari without the confusion of planning it alone, Amara Trails provides tailored itinerary design and personal support from people with real ties to Kenya. Unlike generic global travel marketplaces, Amara Trails is Kenya-specific, locally grounded, and involved throughout the planning journey.
 
 ## 7. Audience
 
@@ -75,7 +75,7 @@ Primary customers are first-time safari guests, couples, families, friends, and 
 
 The website must answer:
 
-- Why should I trust Soraya?
+- Why should I trust Amara Trails?
 - What makes each destination different?
 - How does planning work?
 - Can the journey fit my dates, group, pace, and comfort level?
@@ -167,9 +167,9 @@ Sections:
 
 1. Cinematic landscape hero at dusk or blue hour.
 2. Trust strip: Kenya-focused · Locally grounded · Personally planned · Supported from start to finish.
-3. Short Soraya/Pleiades story.
+3. Short Amara Trails brand story.
 4. Six destination cards.
-5. Why Soraya: Local roots, Tailored planning, Clear guidance, Personal support.
+5. Why Amara Trails: Local roots, Tailored planning, Clear guidance, Personal support.
 6. How it works: Discover, Design, Confirm, Travel.
 7. Three featured safari ideas.
 8. Founder presence connecting Nairobi, Boston, and Ottawa.
@@ -184,7 +184,7 @@ Sections:
 Sections:
 
 1. Kenya-as-home opening.
-2. Meaning of Soraya and the Pleiades.
+2. Meaning of the Amara Trails name.
 3. Three-founder story.
 4. Founder cards with city and concise biography.
 5. Mission and brand promise.
@@ -351,8 +351,8 @@ Initial themes: Kenya safari company for U.S. travelers; Kenya safari planner fo
 
 Provide unique metadata, one H1 per page, descriptive headings, human-readable URLs, canonical tags, sitemap, robots file, social metadata, accurate structured data, alt text, and internal links.
 
-**Homepage title:** Soraya Safaris | Tailor-Made Kenya Safaris  
-**Homepage meta description:** Plan a private Kenya safari with local knowledge and personal support from Soraya Safaris. Explore Maasai Mara, Amboseli, Tsavo, Samburu, Lake Nakuru, and Nairobi National Park.
+**Homepage title:** Amara Trails | Tailor-Made Kenya Safaris  
+**Homepage meta description:** Plan a private Kenya safari with local knowledge and personal support from Amara Trails. Explore Maasai Mara, Amboseli, Tsavo, Samburu, Lake Nakuru, and Nairobi National Park.
 
 ## 23. Open decisions
 
@@ -370,11 +370,11 @@ Provide unique metadata, one H1 per page, descriptive headings, human-readable U
 
 ### Home opening
 
-A Kenya safari is more than a list of parks and lodges. It is the rhythm of early mornings, open roads, quiet evenings, and the people who make each place feel known. Soraya brings those parts together into a journey designed around you.
+A Kenya safari is more than a list of parks and lodges. It is the rhythm of early mornings, open roads, quiet evenings, and the people who make each place feel known. Amara Trails brings those parts together into a journey designed around you.
 
 ### Short about block
 
-Soraya Safaris was founded by three friends connected by Kenya and now based in Nairobi, Boston, and Ottawa. We create private journeys through Kenya’s most memorable wildlife regions, shaped around the people taking them — not around a standard package.
+Amara Trails was founded by three friends connected by Kenya and now based in Nairobi, Boston, and Ottawa. We create private journeys through Kenya’s most memorable wildlife regions, shaped around the people taking them — not around a standard package.
 
 ### Final CTA
 

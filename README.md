@@ -1,6 +1,6 @@
-# Soraya Safaris Website
+# Amara Trails Website
 
-Static marketing site for Soraya Safaris, a Kenya safari company serving North American travelers. The canonical production origin is `https://sorayasafaris.com`.
+Static marketing site for Amara Trails, a Kenya safari company serving North American travelers. The canonical production origin is `https://amaratrails.com`.
 
 ## Stack
 
@@ -93,7 +93,7 @@ The post URL comes from the filename, not from a frontmatter `slug`. For example
 
 Invalid frontmatter fails Astro content validation during `npm run check` and `npm run build`. In CI or Cloudflare Pages, that means the deployment stops and the post is not published until the frontmatter is fixed.
 
-Set `PUBLIC_SITE_URL` in Cloudflare Pages to the apex production origin, `https://sorayasafaris.com`. Blog canonical URLs, RSS links, sitemap entries, and social image URLs use that value. Builds without the variable set fall back to the same apex origin.
+Set `PUBLIC_SITE_URL` in Cloudflare Pages to the apex production origin, `https://amaratrails.com`. Blog canonical URLs, RSS links, sitemap entries, and social image URLs use that value. Builds without the variable set fall back to the same apex origin.
 
 ## Analytics and Public Build Variables
 
@@ -101,7 +101,7 @@ Cloudflare Web Analytics is the only analytics script used. Do not add Google An
 
 Set these non-secret Cloudflare Pages environment variables:
 
-- `PUBLIC_SITE_URL`: canonical apex origin, such as `https://sorayasafaris.com`.
+- `PUBLIC_SITE_URL`: canonical apex origin, such as `https://amaratrails.com`.
 - `PUBLIC_CLOUDFLARE_WEB_ANALYTICS_TOKEN`: Cloudflare Web Analytics token from the Web Analytics dashboard. The layout injects Cloudflare's cookieless beacon only when this value is present.
 - `PUBLIC_INQUIRY_ENDPOINT`: deployed Cloudflare Worker URL or routed path for the `/contact` Book a Safari form.
 
@@ -150,7 +150,7 @@ Inquiry Worker non-secret vars, set in `workers/inquiry/wrangler.toml` under `[v
 
 - `ALLOWED_ORIGIN`: production origin allowed to post the form.
 - `INQUIRY_TO_EMAIL`: inbox that receives inquiry notifications.
-- `RESEND_FROM_EMAIL`: verified Resend sender, such as `Soraya Safaris <admin@sorayasafaris.com>`.
+- `RESEND_FROM_EMAIL`: verified Resend sender, such as `Amara Trails <admin@amaratrails.com>`.
 
 These names must match `workers/inquiry/src/index.js` exactly. The Worker throws `Missing env var` and the submission fails if any required name is wrong.
 

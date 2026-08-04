@@ -5,7 +5,7 @@ import { pageTitle } from "../lib/site";
 
 const inquiryEndpoint = import.meta.env.PUBLIC_INQUIRY_ENDPOINT ?? "/api/inquiry";
 const description =
-  "Start a Book a Safari inquiry with Soraya Safaris and share dates, group size, and the Kenya journey you imagine.";
+  "Start a Book a Safari inquiry with Amara Trails and share dates, group size, and the Kenya journey you imagine.";
 
 // 1, 2, 3 … 30, then "30+" for larger groups.
 const groupSizeOptions = [...Array.from({ length: 30 }, (_, index) => String(index + 1)), "30+"];
@@ -183,14 +183,14 @@ const groupSizeOptions = [...Array.from({ length: 30 }, (_, index) => String(ind
             } else {
               showStatus(
                 (result.data && result.data.message) ||
-                  "We could not send your inquiry right now. Please try again, or email us at admin@sorayasafaris.com.",
+                  "We could not send your inquiry right now. Please try again, or email us at admin@amaratrails.com.",
                 true
               );
             }
           })
           .catch(function () {
             showStatus(
-              "We could not reach the server. Please try again, or email us at admin@sorayasafaris.com.",
+              "We could not reach the server. Please try again, or email us at admin@amaratrails.com.",
               true
             );
           })
