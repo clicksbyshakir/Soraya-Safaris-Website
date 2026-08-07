@@ -1,0 +1,37 @@
+{
+  "source": "/Users/murtazashakir/Downloads/WhatsApp Image 2026-08-04 at 7.02.17\u202fPM.jpeg",
+  "crop_box_xyxy": [
+    79,
+    625,
+    1503,
+    1075
+  ],
+  "viewbox": [
+    0,
+    0,
+    1424,
+    450
+  ],
+  "trace_scale": 4,
+  "path_count": 12,
+  "colors": {
+    "navy": "#173361",
+    "ivory": "#f8f0e3",
+    "black": "#000000",
+    "white": "#ffffff"
+  },
+  "files": [
+    "/Users/murtazashakir/Documents/Codex/2026-08-06/referenced-chatgpt-conversation-this-is-an-2/outputs/amara-trails-navy-ivory.svg",
+    "/Users/murtazashakir/Documents/Codex/2026-08-06/referenced-chatgpt-conversation-this-is-an-2/outputs/amara-trails-navy-ivory.pdf",
+    "/Users/murtazashakir/Documents/Codex/2026-08-06/referenced-chatgpt-conversation-this-is-an-2/outputs/amara-trails-navy-ivory.eps",
+    "/Users/murtazashakir/Documents/Codex/2026-08-06/referenced-chatgpt-conversation-this-is-an-2/outputs/amara-trails-navy-ivory-preview.png",
+    "/Users/murtazashakir/Documents/Codex/2026-08-06/referenced-chatgpt-conversation-this-is-an-2/outputs/amara-trails-black.svg",
+    "/Users/murtazashakir/Documents/Codex/2026-08-06/referenced-chatgpt-conversation-this-is-an-2/outputs/amara-trails-black.pdf",
+    "/Users/murtazashakir/Documents/Codex/2026-08-06/referenced-chatgpt-conversation-this-is-an-2/outputs/amara-trails-black.eps",
+    "/Users/murtazashakir/Documents/Codex/2026-08-06/referenced-chatgpt-conversation-this-is-an-2/outputs/amara-trails-black-preview.png",
+    "/Users/murtazashakir/Documents/Codex/2026-08-06/referenced-chatgpt-conversation-this-is-an-2/outputs/amara-trails-white-on-black.svg",
+    "/Users/murtazashakir/Documents/Codex/2026-08-06/referenced-chatgpt-conversation-this-is-an-2/outputs/amara-trails-white-on-black.pdf",
+    "/Users/murtazashakir/Documents/Codex/2026-08-06/referenced-chatgpt-conversation-this-is-an-2/outputs/amara-trails-white-on-black.eps",
+    "/Users/murtazashakir/Documents/Codex/2026-08-06/referenced-chatgpt-conversation-this-is-an-2/outputs/amara-trails-white-on-black-preview.png"
+  ]
+}
