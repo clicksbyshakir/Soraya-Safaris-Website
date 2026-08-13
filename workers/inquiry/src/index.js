@@ -394,7 +394,7 @@ async function sendResendEmail(env, payload) {
 function internalEmailHtml(inquiry) {
   return `
     <div style="font-family: Inter, Arial, sans-serif; color: #182018; line-height: 1.55;">
-      <h1 style="font-family: Georgia, serif; color: #0B1D34;">New safari inquiry</h1>
+      <h1 style="font-family: Georgia, serif; color: #173361;">New safari inquiry</h1>
       <p><strong>Name:</strong> ${escapeHtml(inquiry.fullName)}</p>
       <p><strong>Email:</strong> ${escapeHtml(inquiry.email)}</p>
       <p><strong>Approximate dates:</strong> ${escapeHtml(inquiry.travelDates)}</p>
@@ -411,7 +411,8 @@ function internalEmailHtml(inquiry) {
 function autoReplyHtml(inquiry) {
   return `
     <div style="font-family: Inter, Arial, sans-serif; color: #182018; line-height: 1.65;">
-      <h1 style="font-family: Georgia, serif; color: #0B1D34;">Asante, ${escapeHtml(inquiry.fullName)}.</h1>
+      <img src="https://amaratrails.com/assets/logo-amara-email.png" alt="Amara Trails" width="200" style="display: block; width: 200px; max-width: 60%; height: auto; margin-bottom: 24px;" />
+      <h1 style="font-family: Georgia, serif; color: #173361;">Asante, ${escapeHtml(inquiry.fullName)}.</h1>
       <p>We have received your inquiry for a Kenya safari with Amara Trails.</p>
       <p>A founder will read your note and reply within a few hours. From there, we will ask any useful follow-up questions, shape a route around your dates and pace, and prepare a custom itinerary before any payment step.</p>
       <p>Kenya, planned by people who call it home.</p>
@@ -489,7 +490,7 @@ function htmlResponse(ok, message, env) {
       }
       h1 {
         margin: 0 0 14px;
-        color: #0B1D34;
+        color: #173361;
         font-family: Georgia, serif;
         font-size: 2.4rem;
         line-height: 1.06;
