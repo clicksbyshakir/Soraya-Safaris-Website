@@ -293,11 +293,10 @@ const groupSizeOptions = [...Array.from({ length: 30 }, (_, index) => String(ind
     }
 
     .trap {
-      position: absolute;
-      left: -10000px;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
+      /* Hidden via display:none so browser autofill and password managers do
+         not fill this honeypot and get real inquiries flagged as spam. Naive
+         bots that fill every field by name still trip it. */
+      display: none;
     }
 
     .form-note {
