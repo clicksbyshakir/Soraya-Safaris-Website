@@ -413,9 +413,7 @@ function autoReplyHtml(inquiry) {
     <div style="font-family: Inter, Arial, sans-serif; color: #182018; line-height: 1.65;">
       <img src="https://amaratrails.com/assets/logo-amara-email.png" alt="Amara Trails" width="200" style="display: block; width: 200px; max-width: 60%; height: auto; margin-bottom: 24px;" />
       <h1 style="font-family: Georgia, serif; color: #173361;">Asante, ${escapeHtml(inquiry.fullName)}.</h1>
-      <p>We have received your inquiry for a Kenya safari with Amara Trails.</p>
-      <p>A founder will read your note and reply within a few hours. From there, we will ask any useful follow-up questions, shape a route around your dates and pace, and prepare a custom itinerary before any payment step.</p>
-      <p>Kenya, planned by people who call it home.</p>
+      <p>Thanks for reaching out — we've got your inquiry and someone from our team will get back to you soon.</p>
       <p style="color: #5E685E;">Amara Trails</p>
     </div>
   `;
