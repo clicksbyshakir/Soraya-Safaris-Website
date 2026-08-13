@@ -151,6 +151,14 @@ const groupSizeOptions = [...Array.from({ length: 30 }, (_, index) => String(ind
         event.preventDefault();
         if (travelDates) travelDates.value = buildTravelDates();
 
+        // Browser autofill and password managers fill the hidden honeypot even
+        // when it is display:none, which wrongly flags a real person as spam.
+        // A genuine submission always runs this JS, so clear it here; a naive
+        // bot that POSTs without executing the page keeps it filled and is still
+        // caught by the server-side honeypot check.
+        const honeypot = form.querySelector('[name="companyWebsite"]');
+        if (honeypot) honeypot.value = "";
+
         if (submitButton) {
           submitButton.disabled = true;
           submitButton.setAttribute("aria-busy", "true");
