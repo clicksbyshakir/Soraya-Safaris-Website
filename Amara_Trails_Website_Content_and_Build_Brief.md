@@ -21,7 +21,7 @@ Build a warm, refined, high-trust website for Amara Trails: a Kenya-focused safa
 
 Amara Trails is a Kenya-focused safari company founded by three friends with deep personal ties to the country. We curate private and small-group journeys to Kenya’s most memorable wildlife regions, combining local knowledge in Nairobi with personal support for travelers in the United States and Canada.
 
-- **Abdul — Nairobi, Kenya:** born in Kenya and based in Nairobi, providing an active local presence.
+- **Abdulqadir — Nairobi, Kenya:** born in Kenya and based in Nairobi, providing an active local presence.
 - **Huzaifa — Boston, United States:** born in Kenya and now based in Boston, connecting Kenyan roots with the U.S. traveler perspective.
 - **Murtaza — Ottawa, Canada:** based in Ottawa and raised in Kenya from age eleven to twenty, bringing both a Kenyan upbringing and a Canadian traveler perspective.
 
