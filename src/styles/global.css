@@ -449,11 +449,13 @@ button {
 .site-footer__links {
   display: grid;
   gap: var(--space-2);
+  min-width: 0;
 }
 
 .site-footer__links a {
   color: color-mix(in srgb, var(--color-ivory) 82%, transparent);
   text-decoration: none;
+  overflow-wrap: anywhere;
 }
 
 .site-footer__bottom {
@@ -472,12 +474,13 @@ button {
 
 @media (min-width: 48rem) {
   .site-footer__inner {
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
     align-items: start;
   }
 
   .site-footer__columns {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-6);
   }
 }
 
